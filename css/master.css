@@ -1,0 +1,88 @@
+#audioVolDiv {
+	position:fixed;
+	top:50px;
+	left:325px;
+}
+
+#audioProgDiv, #audioProgStyleDiv {
+	position:fixed;
+	top:100px;
+	left:375px;
+}
+
+#controls {
+	position:fixed;
+	top:275px;
+	left:375px;
+	font-size:1.5em;
+}
+
+#controls div {
+	display:inline-block;
+	padding:5px;
+}
+
+#playlistControl {
+	position:fixed;
+	top:350px;
+	left:50px;
+	background-color:grey;
+	height:500px;
+	width:800px;
+	padding:7px 5px 5px 5px;
+}
+
+#audioInputDiv {
+	width:fit-content;
+	margin:0 auto;
+}
+
+#audioInput {
+	display:inline-block;
+	height:20px;
+	width:770px;
+	font-size:0.75em;
+}
+
+#audioInputBtn {
+	display:inline-block;
+	width:20px;
+	height:20px;
+}
+
+#playlistView {
+	height:465px;
+	width:100%;
+	margin-top:5px;
+	overflow:auto;
+}
+
+.playlistItem p {
+	margin:5px 0;
+}
+
+.playlistBtnPos {
+	position:relative;
+	top:-50px;
+	left:750px;
+	height:0;
+	width:0;
+	text-align:center;
+}
+
+.playlistBtn {
+	position:absolute;
+	top:0;
+	left:0;
+	height:20px;
+	width:20px;
+}
+
+/* Javascript classes */
+.activeControl {
+	background-color:grey;
+}
+
+.disabled {
+	color:grey;
+}
