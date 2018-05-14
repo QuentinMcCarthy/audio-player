@@ -98,13 +98,42 @@ $(document).ready(function(){
 		// Audio function for if the file is not returned
 		audio.onerror = function(){
 			if(hosted){
+				console.log("Failed to load hosted file. Attempting to load local file.");
+
 				audio = new Audio("audio/"+audioArray[currentTrack].localFile+".mp3");
 
 				hosted = 0;
-				console.log("Loading file failed. Attempting to load local file.");
+
+				audio.onerror = function(){
+					console.log("Failed to load local file. Removing and skipping.");
+					console.log("File failure: "+id);
+					console.log("File failure: "+audioArray[currentTrack].localFile);
+
+					removeFromPlaylist(currentTrack);
+
+					checkCurrentTrack();
+				};
+			}
+			else{
+				console.log("Failed to load local file. Attempting to load hosted file.");
+
+				audio = new Audio(audioArray[currentTrack].hostedFile);
+
+				hosted = 1;
+
+				audio.onerror = function(){
+					console.log("Failed to load hosted file. Removing and skipping.");
+					console.log("File failure: "+id);
+					console.log("File failure: "+audioArray[currentTrack].hostedFile);
+
+					removeFromPlaylist(currentTrack);
+
+					checkCurrentTrack();
+				}
 			}
 		}
 
+		if(audio.duration <= 1)
 
 		// Play the created audio
 		// play();
