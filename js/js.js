@@ -257,7 +257,7 @@ $(document).ready(function(){
 			htmlString += "<div class='playlistItem'><p>";
 			// htmlString += "<strong>localFile:</strong>";
 			// htmlString += "<br>"+currentValue.localFile+"<br>";
-			htmlString += "<strong>hostedFile:</strong>";
+			htmlString += "<strong>File:</strong>";
 			htmlString += "<br>"+currentValue.hostedFile+"";
 			htmlString += "</p></div>";
 			htmlString += "<div class='playlistBtnPos'>";
