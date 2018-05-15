@@ -82,6 +82,13 @@ $(document).ready(function(){
 	// Audio is listed
 	var maxTracks = (audioArray.length - 1);
 
+	// Create variable to keep track of if the audio is loaded
+	var canPlay = false;
+
+	// Create variable for interval
+	var checkLoaded;
+
+
 	// Function to create new audio
 	function createAudio(hosted,id){
 		// If statement declares if given id is a file name
@@ -94,6 +101,8 @@ $(document).ready(function(){
 			// Use audio constructor in audio var
 			audio = new Audio("audio/"+id+".mp3");
 		}
+
+		canPlay = false;
 
 		// Audio function for if the file is not returned
 		audio.onerror = function(){
@@ -133,24 +142,36 @@ $(document).ready(function(){
 			}
 		}
 
-		// Play the created audio
-		// play();
-		// $("#playButton").addClass("activeControl");
-		// $("#pauseButton").removeClass("activeControl");
+		checkLoaded = setInterval(isLoaded, 100);
+	}
 
-		// Pause the created audio
-		pause();
-		// $("#playButton").removeClass("activeControl");
-		// $("#pauseButton").addClass("activeControl");
+	function isLoaded(){
+		if(audio.readyState == 4){
+			// Play the created audio
+			// play();
+			// $("#playButton").addClass("activeControl");
+			// $("#pauseButton").removeClass("activeControl");
 
-		// Set the volume of the created audio
-		setVol(audioVol);
+			// Pause the created audio
+			pause();
+			// $("#playButton").removeClass("activeControl");
+			// $("#pauseButton").addClass("activeControl");
 
-		// Keep track of the current audio track
-		// currentTrack++
+			// Set the volume of the created audio
+			setVol(audioVol);
 
-		// Run trackProgress every tenth of a second
-		tickTen = setInterval(trackProgress, 100);
+			// Keep track of the current audio track
+			// currentTrack++
+
+			// Tell everything else that that they can fire
+			canPlay = true;
+
+			// Stop looping
+			clearInterval(checkLoaded);
+
+			// Run trackProgress every tenth of a second
+			tickTen = setInterval(trackProgress, 100);
+		}
 	}
 
 	// Play the audio
@@ -229,20 +250,26 @@ $(document).ready(function(){
 	}
 
 	function trackProgress(){
-		// console.log(audio.currentTime);
-		// console.log(audio.duration);
+		// Temporary variable, only needed to make sure the lable does not say NaN
+		var audioDuration = audio.duration;
+
+		// If the audioDuration is NaN then set it to 0
+		// This prevents the audio player saying "NaN" and appearing broken
+		if(audioDuration.toString() == "NaN"){
+			audioDuration = 0;
+		}
 
 		// Set the audioProg knob's max and value to duration
 		// and current time of audio
 		$("#audioProg")
-			.trigger("configure",{"max":audio.duration})
+			.trigger("configure",{"max":audioDuration})
 			.val(audio.currentTime)
 			.trigger("change");
 
 		// Create a temporary variable
 		// Initialise variable with a 360deg percentage of
 		// the audio's current time verse its duration
-		var currentArc = ((audio.currentTime / audio.duration)*360)-5
+		var currentArc = ((audio.currentTime / audioDuration)*360)-5
 
 		// If the arc is less than 0, set it to 0
 		if(currentArc<0){
@@ -310,8 +337,10 @@ $(document).ready(function(){
 		// And do not exist otherwise
 		// Click event for the remove from playlist button
 		$(".playlistBtn").click(function(){
-			// console.log("Click");
-			removeFromPlaylist($(this).attr("data-remove"))
+			if(canPlay){
+				// console.log("Click");
+				removeFromPlaylist($(this).attr("data-remove"))
+			}
 		});
 	}
 
@@ -474,27 +503,37 @@ $(document).ready(function(){
 
 	// Click event for the play button
 	$("#playButton").click(function(){
-		play();
+		if(canPlay){
+			play();
+		}
 	});
 
 	// Click event for the pause button
 	$("#pauseButton").click(function(){
-		pause();
+		if(canPlay){
+			pause();
+		}
 	});
 
 	// Click event for the back button
 	$("#backButton").click(function(){
-		skipBackward();
+		if(canPlay){
+			skipBackward();
+		}
 	});
 
 	// Click event for the forward button
 	$("#skipButton").click(function(){
-		skipForward();
+		if(canPlay){
+			skipForward();
+		}
 	});
 
 	// Click event for the add to playlist button
 	$("#audioInputBtn").click(function(){
-		addToPlaylist($("#audioInput").val());
+		if(canPlay){
+			addToPlaylist($("#audioInput").val());
+		}
 	});
 
 	// Call functions
