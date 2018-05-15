@@ -277,6 +277,9 @@ $(document).ready(function(){
 	}
 
 	function updatePlaylist(){
+		// If playlist is updated; then playlist must have changed. Update maxTracks var
+		maxTracks = (audioArray.length - 1);
+
 		// Create and declare htmlString as an empty string
 		var htmlString = "";
 
@@ -342,9 +345,75 @@ $(document).ready(function(){
 	}
 
 	function removeFromPlaylist(toRemove){
-		audioArray.splice(toRemove,1);
+		// These variables are for checking if the removal of the track caused
+		// the array to change
+		if(currentTrack < (audioArray.length - 1)){
+			// Variable used to check if the file exists
+			var checkTrackHosted = audioArray[currentTrack].hostedFile;
 
-		updatePlaylist();
+			// Remove the track from the playlist
+			audioArray.splice(toRemove,1);
+
+			// Update the DOM to reflect the updated playlist
+			updatePlaylist();
+
+			// If tree to get the new index of the file
+			if(audioArray[currentTrack].hostedFile != checkTrackHosted){
+				// Incremental var
+				var i;
+
+				// For loop checks through audioArray for the file
+				for(i=0; i < audioArray.length; i++){
+					// If the hostedFile of the current index is the file
+					if(audioArray[i].hostedFile == checkTrackHosted){
+						// Set the track index to match
+						currentTrack=i;
+
+						// Stop looping
+						break
+					}
+					else if(i == (audioArray.length - 1)){
+						// Else if already checked every item in the array
+
+						// If the track index is greater than the array's max index
+						if(currentTrack > (audioArray.length - 1)){
+							// Set the track index to the array's max index
+							currentTrack = (audioArray.length - 1);
+						}
+
+						// Switch to the new track
+						checkCurrentTrack();
+					}
+				}
+			}
+		}
+		else if((audioArray.length - 1) != 0){
+			// Else if this is not the last item in the array
+
+			// Remove the index from the array
+			audioArray.splice(toRemove,1);
+
+			// Update the DOM playlist
+			updatePlaylist();
+
+			// Set the current track to the array's max index
+			currentTrack = (audioArray.length - 1);
+
+			// Switch to the new track
+			checkCurrentTrack();
+		}
+		else{
+			// Else
+
+			// Remove the last index from the array
+			audioArray.splice(toRemove,1);
+
+			// Update the DOM playlist
+			updatePlaylist();
+
+			// Set the current track to the array's max index which should be 0
+			currentTrack = (audioArray.length - 1);
+		}
 	}
 
 	// Function to create the knobs on the page
