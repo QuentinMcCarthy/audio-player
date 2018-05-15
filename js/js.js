@@ -133,13 +133,15 @@ $(document).ready(function(){
 			}
 		}
 
-		if(audio.duration <= 1)
-
 		// Play the created audio
 		// play();
+		// $("#playButton").addClass("activeControl");
+		// $("#pauseButton").removeClass("activeControl");
 
 		// Pause the created audio
 		pause();
+		// $("#playButton").removeClass("activeControl");
+		// $("#pauseButton").addClass("activeControl");
 
 		// Set the volume of the created audio
 		setVol(audioVol);
