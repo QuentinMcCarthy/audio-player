@@ -88,7 +88,6 @@ $(document).ready(function(){
 	// Create variable for interval
 	var checkLoaded;
 
-
 	// Function to create new audio
 	function createAudio(hosted,id){
 		// If statement declares if given id is a file name
@@ -102,7 +101,11 @@ $(document).ready(function(){
 			audio = new Audio("audio/"+id+".mp3");
 		}
 
+		// Cannot play; loading
 		canPlay = false;
+
+		// Show loading gif
+		$("#loadingDiv").css("display","block");
 
 		// Audio function for if the file is not returned
 		audio.onerror = function(){
@@ -165,6 +168,10 @@ $(document).ready(function(){
 
 			// Tell everything else that that they can fire
 			canPlay = true;
+
+
+			// Hide loading gif
+			$("#loadingDiv").css("display","none");
 
 			// Stop looping
 			clearInterval(checkLoaded);
