@@ -169,7 +169,6 @@ $(document).ready(function(){
 			// Tell everything else that that they can fire
 			canPlay = true;
 
-
 			// Hide loading gif
 			$("#loadingDiv").css("display","none");
 
