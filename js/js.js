@@ -418,6 +418,9 @@ $(document).ready(function(){
 							currentTrack = (audioArray.length - 1);
 						}
 
+						// Stop the audio
+						pause();
+
 						// Switch to the new track
 						checkCurrentTrack();
 					}
@@ -436,6 +439,9 @@ $(document).ready(function(){
 			// Set the current track to the array's max index
 			currentTrack = (audioArray.length - 1);
 
+			// Stop the audio
+			pause();
+
 			// Switch to the new track
 			checkCurrentTrack();
 		}
@@ -447,6 +453,9 @@ $(document).ready(function(){
 
 			// Update the DOM playlist
 			updatePlaylist();
+
+			// Stop the audio
+			pause();
 
 			// Set the current track to the array's max index which should be 0
 			currentTrack = (audioArray.length - 1);
