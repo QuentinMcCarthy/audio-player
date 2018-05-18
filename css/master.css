@@ -67,6 +67,11 @@
 	height:20px;
 	cursor:pointer;
 }
+#audioInputBtn i {
+	position:relative;
+	top:2px;
+	left:3px;
+}
 
 #playlistView {
 	height:46vh;
