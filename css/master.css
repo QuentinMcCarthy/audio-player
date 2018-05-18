@@ -44,7 +44,7 @@
 	top:350px;
 	left:50px;
 	background-color:grey;
-	height:500px;
+	height:50vh;
 	width:800px;
 	padding:7px 5px 5px 5px;
 }
@@ -69,7 +69,7 @@
 }
 
 #playlistView {
-	height:465px;
+	height:46vh;
 	width:100%;
 	margin-top:5px;
 	overflow:auto;
