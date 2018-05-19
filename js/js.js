@@ -321,17 +321,17 @@ $(document).ready(function(){
 		// For every item in the array
 		// Create HTML for the item
 		audioArray.forEach(function(currentValue, index){
-			htmlString += "<div class='playlistItem'><p>";
+			htmlString += "<div class='playlistItem'>";
+			htmlString += "<div class='playlistBtnPos'>";
+			htmlString += "<div class='playlistBtn' data-remove='"+index+"'>";
+			htmlString += "<i class='fas fa-trash'></i>";
+			htmlString += "</div>";
+			htmlString += "</div><p>";
 			// htmlString += "<strong>localFile:</strong>";
 			// htmlString += "<br>"+currentValue.localFile+"<br>";
 			htmlString += "<strong>File:</strong>";
 			htmlString += "<br>"+currentValue.hostedFile+"";
 			htmlString += "</p></div>";
-			htmlString += "<div class='playlistBtnPos'>";
-			htmlString += "<div class='playlistBtn' data-remove='"+index+"'>";
-			htmlString += "<i class='fas fa-trash'></i>";
-			htmlString += "</div>";
-			htmlString += "</div>";
 			htmlString += "<hr>";
 		});
 

@@ -88,8 +88,7 @@
 
 .playlistBtnPos {
 	position:relative;
-	/* top:-50px; */
-	top:-30px;
+	top:-5px;
 	left:750px;
 	height:0;
 	width:0;
