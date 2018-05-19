@@ -77,7 +77,8 @@
 	height:46vh;
 	width:100%;
 	margin-top:5px;
-	overflow:auto;
+	overflow-y:auto;
+	overflow-x:hidden;
 }
 
 .playlistItem p {

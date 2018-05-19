@@ -378,6 +378,9 @@ $(document).ready(function(){
 
 			// Update the DOM to reflect the updated playlist
 			updatePlaylist();
+
+			// Clear the input
+			$("#audioInput").val("");
 		}
 	}
 
