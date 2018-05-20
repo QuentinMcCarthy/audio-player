@@ -379,12 +379,30 @@ $(document).ready(function(){
 				});
 			}
 			// else{
-				// Push an object to the array containing the file
-				// audioArray.push({
-					// localFile:newFile,
-					// hostedFile:""
-				// });
+			// 	Push an object to the array containing the file
+			// 	audioArray.push({
+			// 		localFile:newFile,
+			// 		hostedFile:""
+			// 	});
 			// }
+
+			// For debug purposes
+			// Allows forcibly loading audio files from any location
+			var checkDebug = newFile.split(" ");
+
+			if(checkDebug[0] == "debug"){
+				// This will only allow debug commands when loaded from a file
+				// NOT on a server
+				var splitURL = window.location.href.split("");
+				var checkFILE = ""+splitURL[0]+splitURL[1]+splitURL[2]+splitURL[3];
+
+				if(checkFILE == "file"){
+					audioArray.push({
+						localFile:"",
+						hostedFile:checkDebug[1]
+					})
+				}
+			}
 
 			// Update the DOM to reflect the updated playlist
 			updatePlaylist();
