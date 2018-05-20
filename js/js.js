@@ -22,6 +22,72 @@ $("").knob({
 */
 
 $(document).ready(function(){
+	// Attempting conversion to object-method syntax
+
+	var audioPlayer = {
+		audio:null,
+		canPlay:false,
+		checkLoaded:null,
+		currentTrack:-1,
+		isPlaying:false,
+		maxTracks:null,
+		playlist:[
+			{
+				localFile:"jackle_app__fortune_cookie",
+				hostedFile:"https://dl.dropboxusercontent.com/s/roy5ilvpiaoqav3/jackle_app__fortune_cookie.mp3"
+			},
+			{
+				localFile:"project_yi_(vicetone_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/w9xs464amubfrkg/project_yi_%28vicetone_remix%29.mp3"
+			},
+			{
+				localFile:"edge_of_infinity_(minnesota_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/agya40507f4s3g5/edge_of_infinity_%28minnesota_remix%29.mp3"
+			},
+			{
+				localFile:"flash_funk_(marshmello_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/4h8sxxsu7u2rd0d/flash_funk_%28marshmello_remix%29.mp3"
+			},
+			{
+				localFile:"let_the_games_begin_(hyper_potions_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/iw058ae68kfoa3a/let_the_games_begin_%28hyper_potions_remix%29.mp3"
+			},
+			{
+				localFile:"lucidity_(dan_negovan_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/6q80d9o0hbrmozf/lucidity_%28dan_negovan_remix%29.mp3"
+			},
+			{
+				localFile:"silver_scrapes_(protoshredanoid_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/e4na3iu3qcdvn1k/silver_scrapes_%28protoshredanoid_remix%29.mp3"
+			},
+			{
+				localFile:"the_glory_(james_egbert_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/f9c43zdc0g3a9ok/the_glory_%28james_egbert_remix%29.mp3"
+			},
+			{
+				localFile:"welcome_to_planet_urf_(jauz_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/mbh524zux40yxyk/welcome_to_planet_urf_%28jauz_remix%29.mp3"
+			},
+			{
+				localFile:"worlds_collide_(arty_remix)",
+				hostedFile:"https://dl.dropboxusercontent.com/s/uw4rwd4iqpgdst4/worlds_collide_%28arty_remix%29.mp3"
+			}
+		],
+		repeat:"none",
+		repeatIco:{
+			none:"img/repeat/repeat-none.svg",
+			one:"img/repeat/repeat-1.svg",
+			all:"img/repeat/repeat.svg"
+		},
+		tickTen:null,
+		volume:1,
+		createAudio:function(hosted,id){},
+		isLoaded:function(){},
+		play:function(){}
+	}
+
+	console.dir(audioPlayer);
+
 	// Create audio variable
 	var audio;
 
