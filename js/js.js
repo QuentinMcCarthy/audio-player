@@ -595,7 +595,7 @@ $(document).ready(function(){
 		}
 	}
 
-	console.dir(audioPlayer);
+	// console.dir(audioPlayer);
 
 	// Click event for the play button
 	$("#playButton").click(function(){
