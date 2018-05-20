@@ -287,7 +287,7 @@ $(document).ready(function(){
 
 		// Play the audio based on the current track
 		// Error prevention
-		if(isValid(audioArray[currentTrack])){
+		if(isValid(audioArray[currentTrack].hostedFile)){
 			createAudio(true,audioArray[currentTrack].hostedFile);
 		}
 	}
