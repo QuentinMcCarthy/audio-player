@@ -156,9 +156,16 @@ $(document).ready(function(){
 			// $("#pauseButton").removeClass("activeControl");
 
 			// Pause the created audio
-			pause();
+			// pause();
 			// $("#playButton").removeClass("activeControl");
 			// $("#pauseButton").addClass("activeControl");
+
+			if(currentTrack>0){
+				setTimeout(play, 500);
+			}
+			else{
+				pause();
+			}
 
 			// Set the volume of the created audio
 			setVol(audioVol);
@@ -236,6 +243,9 @@ $(document).ready(function(){
 	}
 
 	function checkCurrentTrack(){
+		// Error prevention
+		maxTracks = (audioArray.length - 1);
+
 		// Set button disabled or not
 		if(currentTrack>0){
 			$("#backButton").removeClass("disabled");
