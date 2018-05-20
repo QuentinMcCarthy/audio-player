@@ -88,6 +88,9 @@ $(document).ready(function(){
 	// Create variable for interval
 	var checkLoaded;
 
+	// Variable for continuous playing
+	var isPlaying = false;
+
 	// Function to create new audio
 	function createAudio(hosted,id){
 		// If statement declares if given id is a file name
@@ -160,11 +163,12 @@ $(document).ready(function(){
 			// $("#playButton").removeClass("activeControl");
 			// $("#pauseButton").addClass("activeControl");
 
-			if(currentTrack>0){
+			// if(currentTrack>0){
+			if(isPlaying){
 				setTimeout(play, 500);
 			}
 			else{
-				pause();
+				setTimeout(pause, 500);
 			}
 
 			// Set the volume of the created audio
@@ -576,6 +580,8 @@ $(document).ready(function(){
 	$("#playButton").click(function(){
 		if(canPlay){
 			play();
+
+			isPlaying = true;
 		}
 	});
 
@@ -583,6 +589,8 @@ $(document).ready(function(){
 	$("#pauseButton").click(function(){
 		if(canPlay){
 			pause();
+
+			isPlaying = false;
 		}
 	});
 
