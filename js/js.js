@@ -242,6 +242,26 @@ $(document).ready(function(){
 		}
 	}
 
+	function isValid(fileToCheck){
+		// This function checks if the given file is valid or not
+
+		if(fileToCheck != ""){
+			var checkEXT = fileToCheck.split(".")
+
+			// Boolean vars to make if statement shorter
+			var isMP3 = (checkEXT[checkEXT.length - 1] == "mp3");
+			var isM4A = (checkEXT[checkEXT.length - 1] == "m4a");
+
+			// Audio formats
+			if(isMP3 || isM4A){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	}
+
 	function checkCurrentTrack(){
 		// Error prevention
 		maxTracks = (audioArray.length - 1);
@@ -262,7 +282,10 @@ $(document).ready(function(){
 		}
 
 		// Play the audio based on the current track
-		createAudio(true,audioArray[currentTrack].hostedFile);
+		// Error prevention
+		if(isValid(audioArray[currentTrack])){
+			createAudio(true,audioArray[currentTrack].hostedFile);
+		}
 	}
 
 	function trackProgress(){
@@ -372,11 +395,13 @@ $(document).ready(function(){
 			// If the first four letters of the string
 			// are "http" then it is a hosted file
 			if(checkHTTP == "http"){
-				// Push an object to the array containing the file
-				audioArray.push({
-					localFile:"",
-					hostedFile:newFile
-				});
+				if(isValid(newFile)){
+					// Push an object to the array containing the file
+					audioArray.push({
+						localFile:"",
+						hostedFile:newFile
+					});
+				}
 			}
 			// else{
 			// 	Push an object to the array containing the file
