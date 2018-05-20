@@ -91,6 +91,11 @@ $(document).ready(function(){
 	// Variable for continuous playing
 	var isPlaying = false;
 
+	// Variables for the repeat icons
+	var repeatNone = "img/repeat/repeat-none.svg";
+	var repeatOne = "img/repeat/repeat-1.svg";
+	var repeatAll = "img/repeat/repeat.svg";
+
 	// Function to create new audio
 	function createAudio(hosted,id){
 		// If statement declares if given id is a file name
@@ -246,6 +251,22 @@ $(document).ready(function(){
 		}
 	}
 
+	function repeat(){
+		switch($("#repeatButton").attr("data-repeat")){
+			case "none":
+				$("#repeatButton").attr("data-repeat","single");
+				$("#repeatButton img").attr("src",repeatOne);
+				break;
+			case "single":
+				$("#repeatButton").attr("data-repeat","all");
+				$("#repeatButton img").attr("src",repeatAll);
+				break;
+			default:
+				$("#repeatButton").attr("data-repeat","none");
+				$("#repeatButton img").attr("src",repeatNone);
+		}
+	}
+
 	function isValid(fileToCheck){
 		// This function checks if the given file is valid or not
 
@@ -284,6 +305,20 @@ $(document).ready(function(){
 		else{
 			$("#skipButton").addClass("disabled");
 		}
+
+		updatePlaylist();
+
+		// Border thickness
+		var borderPx = "3px"
+
+		// Add border-left to current track on playlist
+		$("[data-item="+currentTrack+"]").css("border-left",borderPx+" solid black");
+
+		// Get the "left" value of the current track's button pos
+		var currentLeft = $("[data-item="+currentTrack+"] .playlistBtnPos").css("left");
+
+		// New "left" value for current track's button pos is current  - border thickness
+		$("[data-item="+currentTrack+"] .playlistBtnPos").css("left",(parseInt(currentLeft)-parseInt(borderPx)).toString()+"px");
 
 		// Play the audio based on the current track
 		// Error prevention
@@ -358,7 +393,7 @@ $(document).ready(function(){
 		// For every item in the array
 		// Create HTML for the item
 		audioArray.forEach(function(currentValue, index){
-			htmlString += "<div class='playlistItem'>";
+			htmlString += "<div class='playlistItem' data-item='"+index+"'>";
 			htmlString += "<div class='playlistBtnPos'>";
 			htmlString += "<div class='playlistBtn' data-remove='"+index+"'>";
 			htmlString += "<i class='fas fa-trash'></i>";
@@ -612,6 +647,13 @@ $(document).ready(function(){
 	$("#audioInputBtn").click(function(){
 		if(canPlay){
 			addToPlaylist($("#audioInput").val());
+		}
+	});
+
+	// Click event for the repeat button
+	$("#repeatButton").click(function(){
+		if(canPlay){
+			repeat();
 		}
 	});
 
