@@ -91,6 +91,9 @@ $(document).ready(function(){
 	// Variable for continuous playing
 	var isPlaying = false;
 
+	// Variable for repeating
+	var repeat = "none";
+
 	// Variables for the repeat icons
 	var repeatNone = "img/repeat/repeat-none.svg";
 	var repeatOne = "img/repeat/repeat-1.svg";
@@ -251,19 +254,22 @@ $(document).ready(function(){
 		}
 	}
 
-	function repeat(){
+	function repeatToggle(){
 		switch($("#repeatButton").attr("data-repeat")){
 			case "none":
 				$("#repeatButton").attr("data-repeat","single");
 				$("#repeatButton img").attr("src",repeatOne);
+				repeat = "single";
 				break;
 			case "single":
 				$("#repeatButton").attr("data-repeat","all");
 				$("#repeatButton img").attr("src",repeatAll);
+				repeat = "all";
 				break;
 			default:
 				$("#repeatButton").attr("data-repeat","none");
 				$("#repeatButton img").attr("src",repeatNone);
+				repeat = "none";
 		}
 	}
 
@@ -304,6 +310,10 @@ $(document).ready(function(){
 		}
 		else{
 			$("#skipButton").addClass("disabled");
+		}
+
+		if(currentTrack >= maxTracks && repeat == "all"){
+			currentTrack = 0;
 		}
 
 		updatePlaylist();
@@ -372,14 +382,23 @@ $(document).ready(function(){
 
 		// If the audio is finished
 		if(audio.ended){
-			// Stop looping
-			clearInterval(tickTen);
+			if(repeat == "single"){
+				pause();
 
-			// New track
-			currentTrack++
+				audio.currentTime = 0;
 
-			// Check the current track
-			checkCurrentTrack();
+				setTimeout(play, 1000);
+			}
+			else{
+				// Stop looping
+				clearInterval(tickTen);
+
+				// New track
+				currentTrack++
+
+				// Check the current track
+				checkCurrentTrack();
+			}
 		}
 	}
 
@@ -653,7 +672,7 @@ $(document).ready(function(){
 	// Click event for the repeat button
 	$("#repeatButton").click(function(){
 		if(canPlay){
-			repeat();
+			repeatToggle();
 		}
 	});
 
