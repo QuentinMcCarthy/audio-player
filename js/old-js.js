@@ -97,7 +97,7 @@ $(document).ready(function(){
 	// Variables for the repeat icons
 	var repeatNone = "img/repeat/repeat-none.svg";
 	var repeatOne = "img/repeat/repeat-1.svg";
-	var repeatAll = "img/repeat/repeat.svg";
+	var repeatAll = "img/repeat/repeat-all.svg";
 
 	// Function to create new audio
 	function createAudio(hosted,id){

@@ -76,7 +76,7 @@ $(document).ready(function(){
 		repeatIco:{
 			none:"img/repeat/repeat-none.svg",
 			one:"img/repeat/repeat-1.svg",
-			all:"img/repeat/repeat.svg"
+			all:"img/repeat/repeat-all.svg"
 		},
 		tickTen:null,
 		volume:1,
