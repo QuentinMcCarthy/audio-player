@@ -16,9 +16,8 @@
 	From the jQuery knobs */
 #audioVol {
 	font-size:2em !important;
-	position:relative !important;
-	top:-255px;
-	left:25px;
+	top:-120px;
+	left:272.5px;
 	height:35px !important;
 	width:80px !important;
 }
@@ -121,6 +120,10 @@
 	width:20px;
 }
 
+.playlistItem {
+	border-left:3px solid white;
+	padding-left:5px;
+}
 .playlistItem p {
 	margin:5px 0;
 }
