@@ -1,26 +1,3 @@
-/*
-.knob call:
-$("").knob({
-	"min":0,
-	"max":100,
-	"step":1,
-	"angleOffset":0,
-	"angleArc":360,
-	"stopper":true,
-	"readOnly":false,
-	"rotation":clockwise,
-	"cursor":false,
-	"thickness":.35,
-	"displayInput":true,
-	"displayPrevious":false,
-	"release":function(){},
-	"change":function(){},
-	"draw":function(){},
-	"cancel":function(){},
-	"format":function(){}
-})
-*/
-
 $(document).ready(function(){
 	// Object-model syntax
 	var audioPlayer = {
