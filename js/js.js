@@ -32,43 +32,55 @@ $(document).ready(function(){
 		maxTracks:null,
 		playlist:[
 			{
-				localFile:"jackle_app__fortune_cookie",
+				localFile:"_EnV_ - Heaven.mp3",
+				hostedFile:"https://dl.dropboxusercontent.com/s/9pamibo40ycabe1/_EnV_%20-%20Heaven.mp3"
+			},
+			{
+				localFile:"ｉ ｎ ｔ ｅ ｒ ｓ ｐ ａ ｃ ｅ.mp3",
+				hostedFile:"https://dl.dropboxusercontent.com/s/p07gh6bur678t5t/%EF%BD%89%20%EF%BD%8E%20%EF%BD%94%20%EF%BD%85%20%EF%BD%92%20%EF%BD%93%20%EF%BD%90%20%EF%BD%81%20%EF%BD%83%20%EF%BD%85.mp3"
+			},
+			{
+				localFile:"Getting Stronger - Michelle Creber Black Gryph0n Baasik.mp3",
+				hostedFile:"https://dl.dropboxusercontent.com/s/mw28fr4lt64mhzt/Getting%20Stronger%20-%20Michelle%20Creber%20Black%20Gryph0n%20Baasik.mp3"
+			},
+			{
+				localFile:"jackle_app__fortune_cookie.mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/roy5ilvpiaoqav3/jackle_app__fortune_cookie.mp3"
 			},
 			{
-				localFile:"project_yi_(vicetone_remix)",
+				localFile:"project_yi_(vicetone_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/w9xs464amubfrkg/project_yi_%28vicetone_remix%29.mp3"
 			},
 			{
-				localFile:"edge_of_infinity_(minnesota_remix)",
+				localFile:"edge_of_infinity_(minnesota_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/agya40507f4s3g5/edge_of_infinity_%28minnesota_remix%29.mp3"
 			},
 			{
-				localFile:"flash_funk_(marshmello_remix)",
+				localFile:"flash_funk_(marshmello_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/4h8sxxsu7u2rd0d/flash_funk_%28marshmello_remix%29.mp3"
 			},
 			{
-				localFile:"let_the_games_begin_(hyper_potions_remix)",
+				localFile:"let_the_games_begin_(hyper_potions_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/iw058ae68kfoa3a/let_the_games_begin_%28hyper_potions_remix%29.mp3"
 			},
 			{
-				localFile:"lucidity_(dan_negovan_remix)",
+				localFile:"lucidity_(dan_negovan_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/6q80d9o0hbrmozf/lucidity_%28dan_negovan_remix%29.mp3"
 			},
 			{
-				localFile:"silver_scrapes_(protoshredanoid_remix)",
+				localFile:"silver_scrapes_(protoshredanoid_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/e4na3iu3qcdvn1k/silver_scrapes_%28protoshredanoid_remix%29.mp3"
 			},
 			{
-				localFile:"the_glory_(james_egbert_remix)",
+				localFile:"the_glory_(james_egbert_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/f9c43zdc0g3a9ok/the_glory_%28james_egbert_remix%29.mp3"
 			},
 			{
-				localFile:"welcome_to_planet_urf_(jauz_remix)",
+				localFile:"welcome_to_planet_urf_(jauz_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/mbh524zux40yxyk/welcome_to_planet_urf_%28jauz_remix%29.mp3"
 			},
 			{
-				localFile:"worlds_collide_(arty_remix)",
+				localFile:"worlds_collide_(arty_remix).mp3",
 				hostedFile:"https://dl.dropboxusercontent.com/s/uw4rwd4iqpgdst4/worlds_collide_%28arty_remix%29.mp3"
 			}
 		],
@@ -89,7 +101,7 @@ $(document).ready(function(){
 			}
 			else{
 				// Use audio constructor in audio var
-				audioPlayer.audio = new Audio("audio/"+id+".mp3");
+				audioPlayer.audio = new Audio("audio/"+id);
 			}
 
 			// Cannot play; loading
