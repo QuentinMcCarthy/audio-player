@@ -558,7 +558,7 @@ $(document).ready(function(){
 			$("#audioVol").knob({
 				"angleOffset":-90,
 				"angleArc":180,
-				"displayInput":false,
+				// "displayInput":false,
 				"displayPrevious":true,
 				"width":"250",
 				"min":0,
@@ -573,6 +573,7 @@ $(document).ready(function(){
 				"width":"150",
 				"readOnly":true,
 				"cursor":"2.5",
+				// "fgColor":"black",
 				"draw":function(){
 					$(this.i).css("font-size","1.5em")
 				}

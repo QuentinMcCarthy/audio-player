@@ -12,6 +12,22 @@
 	z-index:1;
 }
 
+/*	These values have to be marked as !important to override the element styles
+	From the jQuery knobs */
+#audioVol {
+	font-size:2em !important;
+	position:relative !important;
+	top:-255px;
+	left:25px;
+	height:35px !important;
+	width:80px !important;
+}
+
+#audioProg {
+	/* color:rgb(135,206,235) !important; */
+	font-size:2em !important;
+}
+
 #controls {
 	position:fixed;
 	top:275px;
