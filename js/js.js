@@ -225,17 +225,17 @@ var audioPlayer = {
 		switch($("#repeatButton").attr("data-repeat")){
 			case "none":
 				$("#repeatButton").attr("data-repeat","single");
-				$("#repeatButton img").attr("src",audioPlayer.repeatIco.repeatOne);
+				$("#repeatButton img").attr("src",audioPlayer.repeatIco.one);
 				audioPlayer.repeat = "single";
 				break;
 			case "single":
 				$("#repeatButton").attr("data-repeat","all");
-				$("#repeatButton img").attr("src",audioPlayer.repeatIco.repeatAll);
+				$("#repeatButton img").attr("src",audioPlayer.repeatIco.all);
 				audioPlayer.repeat = "all";
 				break;
 			default:
 				$("#repeatButton").attr("data-repeat","none");
-				$("#repeatButton img").attr("src",audioPlayer.repeatIco.repeatNone);
+				$("#repeatButton img").attr("src",audioPlayer.repeatIco.none);
 				audioPlayer.repeat = "none";
 		}
 	},
