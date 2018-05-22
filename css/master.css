@@ -1,12 +1,17 @@
-#audioVolDiv {
+#audioPlayer {
 	position:fixed;
+	left:25vw;
+}
+
+#audioVolDiv {
+	position:absolute;
 	top:50px;
 	left:325px;
 	z-index:2;
 }
 
 #audioProgDiv, #audioProgStyleDiv {
-	position:fixed;
+	position:absolute;
 	top:100px;
 	left:375px;
 	z-index:1;
@@ -28,9 +33,9 @@
 }
 
 #controls {
-	position:fixed;
+	position:absolute;
 	top:275px;
-	left:350px;
+	left:345px;
 	font-size:1.5em;
 	z-index:1;
 }
@@ -38,18 +43,38 @@
 	display:inline-block;
 	padding:5px;
 	cursor:pointer;
+	position:absolute;
 }
 
+#repeatButton {
+	/* top:-8px; */
+}
 #repeatButton img {
 	position:relative;
-	top:7px;
+	/* top:7px; */
 	width:30px;
 	/* height:24px; */
 }
 
+#backButton {
+	left:45px;
+}
+
+#playButton {
+	left:85px;
+}
+
+#pauseButton {
+	left:125px;
+}
+
+#skipButton {
+	left:165px;
+}
+
 #loadingDiv {
 	display:none;
-	position:fixed;
+	position:absolute;
 	top:110px;
 	left:385px;
 	z-index:1;
@@ -61,7 +86,7 @@
 }
 
 #playlistControl {
-	position:fixed;
+	position:absolute;
 	top:350px;
 	left:50px;
 	background-color:grey;
@@ -153,4 +178,22 @@
 
 .disabled {
 	color:grey;
+}
+
+@media screen and (max-width:1150px){
+	#audioPlayer {
+		left:11vw;
+	}
+}
+
+@media screen and (max-width:975px){
+	#audioPlayer {
+		left:3vw;
+	}
+}
+
+@media screen and (max-width:895px){
+	#audioPlayer {
+		left:0
+	}
 }
