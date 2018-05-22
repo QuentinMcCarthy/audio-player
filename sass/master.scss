@@ -25,17 +25,12 @@
 }
 
 #audioVolDiv {
-	// @include position:
-	position:absolute;
-	top:50px;
-	left:325px;
+	@include position(absolute,50px,325px);
 	z-index:2;
 }
 
 #audioProgDiv, #audioProgStyleDiv {
-	position:absolute;
-	top:100px;
-	left:375px;
+	@include position(absolute,100px,375px);
 	z-index:1;
 }
 
@@ -55,9 +50,7 @@
 }
 
 #controls {
-	position:absolute;
-	top:275px;
-	left:345px;
+	@include position(absolute,275px,345px);
 	font-size:1.5em;
 	z-index:1;
 }
@@ -95,10 +88,8 @@
 }
 
 #loadingDiv {
+	@include position(absolute,110px,385px);
 	display:none;
-	position:absolute;
-	top:110px;
-	left:385px;
 	z-index:1;
 }
 
@@ -108,9 +99,7 @@
 }
 
 #playlistControl {
-	position:absolute;
-	top:350px;
-	left:50px;
+	@include position(absolute,350px,50px);
 	background-color:grey;
 	height:50vh;
 	width:800px;

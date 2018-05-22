@@ -2,3 +2,4 @@
 audio/
 img/*
 !img/repeat
+prepros*.config
