@@ -1,6 +1,7 @@
 // Object-model syntax
 var audioPlayer = {
 	audio:null,
+	audioReady:false,
 	canPlay:false,
 	checkLoaded:null,
 	currentTrack:-1,
@@ -124,10 +125,16 @@ var audioPlayer = {
 			}
 		}
 
+		audioReady = false;
+
+		audioPlayer.audio.canplaythrough = function(){
+			audioReady = true;
+		}
+
 		audioPlayer.checkLoaded = setInterval(audioPlayer.isLoaded, 100);
 	},
 	isLoaded:function(){
-		if(audioPlayer.audio.readyState == 4){
+		if(audioPlayer.audio.readyState == 4 || audioReady){
 			// Play the created audio
 			// audioPlayer.play();
 			// $("#playButton").addClass("activeControl");
