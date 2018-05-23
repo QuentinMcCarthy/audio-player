@@ -5,7 +5,14 @@ var audioPlayer = {
 	canPlay:false,
 	checkLoaded:null,
 	currentTrack:-1,
+	isBlink:undefined,
+	isChrome:undefined,
+	isEdge:undefined,
+	isFirefox:undefined,
+	isIE:undefined,
+	isOpera:undefined,
 	isPlaying:false,
+	isSafari:undefined,
 	maxTracks:null,
 	playlist:[
 		{
@@ -588,12 +595,91 @@ var audioPlayer = {
 
 			audioPlayer.checkCurrentTrack();
 		}, 250)
+	},
+	detectBrowser:function(){
+		// Opera 8.0+
+		audioPlayer.isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+		// Firefox 1.0+
+		audioPlayer.isFirefox = typeof InstallTrigger !== 'undefined';
+
+		// Safari 3.0+ "[object HTMLElementConstructor]"
+		// DOES NOT WORK SAFARI 10+
+		audioPlayer.isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+		// Internet Explorer 6-11
+		audioPlayer.isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+		// Edge 20+
+		audioPlayer.isEdge = !audioPlayer.isIE && !!window.StyleMedia;
+
+		// Chrome 1+
+		audioPlayer.isChrome = !!window.chrome && !!window.chrome.webstore;
+
+		// Blink engine detection
+		audioPlayer.isBlink = (audioPlayer.isChrome || audioPlayer.isOpera) && !!window.CSS;
+
+		if(!audioPlayer.isOpera && !audioPlayer.isFirefox && !audioPlayer.isSafari && !audioPlayer.isIE && !audioPlayer.isEdge && !audioPlayer.isChrome && !audioPlayer.isBlink){
+			console.log("Browser detection failure. Trying second method.");
+
+			if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1){
+				audioPlayer.isOpera = true;
+				audioPlayer.isFirefox = false;
+				audioPlayer.isSafari = false;
+				audioPlayer.isIE = false;
+				audioPlayer.isEdge = false;
+				audioPlayer.isChrome = false;
+				audioPlayer.isBlink = false;
+			}
+			else if(navigator.userAgent.indexOf("Firefox") != -1){
+				audioPlayer.isOpera = false;
+				audioPlayer.isFirefox = true;
+				audioPlayer.isSafari = false;
+				audioPlayer.isIE = false;
+				audioPlayer.isEdge = false;
+				audioPlayer.isChrome = false;
+				audioPlayer.isBlink = false;
+		    }
+			else if(navigator.userAgent.indexOf("Safari") != -1){
+				audioPlayer.isOpera = false;
+				audioPlayer.isFirefox = false;
+				audioPlayer.isSafari = true;
+				audioPlayer.isIE = false;
+				audioPlayer.isEdge = false;
+				audioPlayer.isChrome = false;
+				audioPlayer.isBlink = false;
+			}
+			else if((navigator.userAgent.indexOf("MSIE")) != -1){
+				audioPlayer.isOpera = false;
+				audioPlayer.isFirefox = false;
+				audioPlayer.isSafari = false;
+				audioPlayer.isIE = true;
+				audioPlayer.isEdge = false;
+				audioPlayer.isChrome = false;
+				audioPlayer.isBlink = false;
+			}
+			else if(navigator.userAgent.indexOf("Chrome") != -1){
+				audioPlayer.isOpera = false;
+				audioPlayer.isFirefox = false;
+				audioPlayer.isSafari = false;
+				audioPlayer.isIE = false;
+				audioPlayer.isEdge = false;
+				audioPlayer.isChrome = true;
+				audioPlayer.isBlink = false;
+			}
+			else{
+				console.log("Browser detecion failure. Unknown browser.");
+			}
+		}
 	}
 }
 
 // console.dir(audioPlayer);
 
 $(document).ready(function(){
+	// Browser detection
+	audioPlayer.detectBrowser()
+
 	// Click event for the play button
 	$("#playButton").click(function(){
 		if(audioPlayer.canPlay){
