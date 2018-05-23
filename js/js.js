@@ -84,6 +84,21 @@ var audioPlayer = {
 			requestAnimationFrame(audioPlayer.visualizer.renderFrame);
 
 			audioPlayer.visualizer.analyser.getByteFrequencyData(audioPlayer.visualizer.frequencyData);
+
+			$("#audioKnobs").css("left","-250px");
+
+			$("#audioVisualizer").html("");
+			$("#audioVisualizer").css("display","block");
+
+			audioPlayer.visualizer.frequencyData.forEach(function(currentValue,index){
+				var newBar = document.createElement("div");
+
+				$("#audioVisualizer").append(newBar);
+
+				$(newBar).attr("id","freq"+index);
+			});
+
+
 		}
 	},
 	volume:1,
@@ -676,6 +691,11 @@ var audioPlayer = {
 		audioPlayer.visualizer.audioSrc.connect(audioPlayer.visualizer.analyser);
 
 		audioPlayer.visualizer.frequencyData = new Uint8Array(audioPlayer.visualizer.analyser.frequencyBinCount);
+
+		// audioPlayer.visualizer.renderFrame();
+	},
+	runVisualizer:function(){
+
 	}
 }
 

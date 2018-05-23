@@ -9,28 +9,34 @@
 	</head>
 	<body>
 		<div id="audioPlayer">
-			<div id="audioVolDiv">
-				<input id="audioVol" type="text" name="audioVol" value="1">
+			<div id="audioKnobs">
+				<div id="audioVolDiv">
+					<input id="audioVol" type="text" name="audioVol" value="1">
+				</div>
+
+				<div id="audioProgDiv">
+					<input id="audioProg" type="text" name="audioProg">
+				</div>
+
+				<div id="audioProgStyleDiv">
+					<input id="audioProgStyle" type="text" name="audioProg-style">
+				</div>
+
+				<div id="loadingDiv">
+					<img id="loadingAnim" src="https://dl.dropboxusercontent.com/s/n3lbd07r1spar8u/loading.gif" alt="Loading">
+				</div>
+
+				<div id="controls">
+					<div id="repeatButton" data-repeat="none"><img src="img/repeat/repeat-none.svg"></div>
+					<div id="backButton" class="disabled"><i class="fas fa-step-backward"></i></div>
+					<div id="playButton"><i class="fas fa-play"></i></div>
+					<div id="pauseButton"><i class="fas fa-pause"></i></div>
+					<div id="skipButton"><i class="fas fa-step-forward"></i></div>
+				</div>
 			</div>
 
-			<div id="audioProgDiv">
-				<input id="audioProg" type="text" name="audioProg">
-			</div>
+			<div id="audioVisualizer">
 
-			<div id="audioProgStyleDiv">
-				<input id="audioProgStyle" type="text" name="audioProg-style">
-			</div>
-
-			<div id="controls">
-				<div id="repeatButton" data-repeat="none"><img src="img/repeat/repeat-none.svg"></div>
-				<div id="backButton" class="disabled"><i class="fas fa-step-backward"></i></div>
-				<div id="playButton"><i class="fas fa-play"></i></div>
-				<div id="pauseButton"><i class="fas fa-pause"></i></div>
-				<div id="skipButton"><i class="fas fa-step-forward"></i></div>
-			</div>
-
-			<div id="loadingDiv">
-				<img id="loadingAnim" src="https://dl.dropboxusercontent.com/s/n3lbd07r1spar8u/loading.gif" alt="Loading">
 			</div>
 
 			<div id="playlistControl">

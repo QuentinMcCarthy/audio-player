@@ -24,6 +24,10 @@
 	@include position(fixed,"",25vw);
 }
 
+#audioKnobs {
+	@include position(absolute,"","");
+}
+
 #audioVolDiv {
 	@include position(absolute,50px,325px);
 	z-index:2;
@@ -47,6 +51,17 @@
 #audioProg {
 	/* color:rgb(135,206,235) !important; */
 	font-size:2em !important;
+}
+
+#loadingDiv {
+	@include position(absolute,110px,385px);
+	display:none;
+	z-index:1;
+}
+
+#loadingAnim {
+	height:130px;
+	width:130px;
 }
 
 #controls {
@@ -87,15 +102,15 @@
 	left:165px;
 }
 
-#loadingDiv {
-	@include position(absolute,110px,385px);
+#audioVisualizer {
+	@include position(absolute,10px,375px);
 	display:none;
-	z-index:1;
+	width:485px;
+	height:325px;
+	background-color:black;
 }
-
-#loadingAnim {
-	height:130px;
-	width:130px;
+#audioViuaslizer {
+	transition:0.1s all linear;
 }
 
 #playlistControl {
