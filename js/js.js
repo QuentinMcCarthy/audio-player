@@ -75,6 +75,17 @@ var audioPlayer = {
 		all:"img/repeat/repeat-all.svg"
 	},
 	tickTen:null,
+	visualizer:{
+		ctx:null,
+		audioSrc:null,
+		analyser:null,
+		frequencyData:null,
+		renderFrame:function(){
+			requestAnimationFrame(audioPlayer.visualizer.renderFrame);
+
+			audioPlayer.visualizer.analyser.getByteFrequencyData(audioPlayer.visualizer.frequencyData);
+		}
+	},
 	volume:1,
 	createAudio:function(hosted,id){
 		// If statement declares if given id is a file name
@@ -87,6 +98,9 @@ var audioPlayer = {
 			// Use audio constructor in audio var
 			audioPlayer.audio = new Audio("audio/"+id);
 		}
+
+		// Removing CORS access restriction
+		audioPlayer.audio.crossOrigin = "anonymous";
 
 		// Cannot play; loading
 		audioPlayer.canPlay = false;
@@ -172,6 +186,10 @@ var audioPlayer = {
 			// Hide loading gif
 			$("#loadingDiv").css("display","none");
 
+			if(audioPlayer.isChrome){
+				audioPlayer.createVisualizer();
+			}
+
 			// Stop looping
 			clearInterval(audioPlayer.checkLoaded);
 
@@ -181,6 +199,7 @@ var audioPlayer = {
 	},
 	play:function(){
 		audioPlayer.audio.play();
+		audioPlayer.visualizer.renderFrame();
 
 		// These classes control the background on the play/pause
 		// buttons to show which one is active
@@ -622,55 +641,41 @@ var audioPlayer = {
 		if(!audioPlayer.isOpera && !audioPlayer.isFirefox && !audioPlayer.isSafari && !audioPlayer.isIE && !audioPlayer.isEdge && !audioPlayer.isChrome && !audioPlayer.isBlink){
 			console.log("Browser detection failure. Trying second method.");
 
+			audioPlayer.isOpera = false;
+			audioPlayer.isFirefox = false;
+			audioPlayer.isSafari = false;
+			audioPlayer.isIE = false;
+			audioPlayer.isEdge = false;
+			audioPlayer.isChrome = false;
+			audioPlayer.isBlink = false;
+
 			if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1){
-				audioPlayer.isOpera = true;
-				audioPlayer.isFirefox = false;
-				audioPlayer.isSafari = false;
-				audioPlayer.isIE = false;
-				audioPlayer.isEdge = false;
-				audioPlayer.isChrome = false;
-				audioPlayer.isBlink = false;
 			}
 			else if(navigator.userAgent.indexOf("Firefox") != -1){
-				audioPlayer.isOpera = false;
 				audioPlayer.isFirefox = true;
-				audioPlayer.isSafari = false;
-				audioPlayer.isIE = false;
-				audioPlayer.isEdge = false;
-				audioPlayer.isChrome = false;
-				audioPlayer.isBlink = false;
 		    }
 			else if(navigator.userAgent.indexOf("Safari") != -1){
-				audioPlayer.isOpera = false;
-				audioPlayer.isFirefox = false;
 				audioPlayer.isSafari = true;
-				audioPlayer.isIE = false;
-				audioPlayer.isEdge = false;
-				audioPlayer.isChrome = false;
-				audioPlayer.isBlink = false;
 			}
 			else if((navigator.userAgent.indexOf("MSIE")) != -1){
-				audioPlayer.isOpera = false;
-				audioPlayer.isFirefox = false;
-				audioPlayer.isSafari = false;
 				audioPlayer.isIE = true;
-				audioPlayer.isEdge = false;
-				audioPlayer.isChrome = false;
-				audioPlayer.isBlink = false;
 			}
 			else if(navigator.userAgent.indexOf("Chrome") != -1){
-				audioPlayer.isOpera = false;
-				audioPlayer.isFirefox = false;
-				audioPlayer.isSafari = false;
-				audioPlayer.isIE = false;
-				audioPlayer.isEdge = false;
 				audioPlayer.isChrome = true;
-				audioPlayer.isBlink = false;
 			}
 			else{
 				console.log("Browser detecion failure. Unknown browser.");
 			}
 		}
+	},
+	createVisualizer:function(){
+		audioPlayer.visualizer.ctx = new AudioContext();
+		audioPlayer.visualizer.audioSrc = audioPlayer.visualizer.ctx.createMediaElementSource(audioPlayer.audio);
+		audioPlayer.visualizer.analyser = audioPlayer.visualizer.ctx.createAnalyser();
+
+		audioPlayer.visualizer.audioSrc.connect(audioPlayer.visualizer.analyser);
+
+		audioPlayer.visualizer.frequencyData = new Uint8Array(audioPlayer.visualizer.analyser.frequencyBinCount);
 	}
 }
 
