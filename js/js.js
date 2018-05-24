@@ -75,32 +75,32 @@ var audioPlayer = {
 		all:"img/repeat/repeat-all.svg"
 	},
 	tickTen:null,
-	visualizer:{
-		ctx:null,
-		audioSrc:null,
-		analyser:null,
-		frequencyData:null,
-		renderFrame:function(){
-			requestAnimationFrame(audioPlayer.visualizer.renderFrame);
-
-			audioPlayer.visualizer.analyser.getByteFrequencyData(audioPlayer.visualizer.frequencyData);
-
-			$("#audioKnobs").css("left","-250px");
-
-			$("#audioVisualizer").html("");
-			$("#audioVisualizer").css("display","block");
-
-			audioPlayer.visualizer.frequencyData.forEach(function(currentValue,index){
-				var newBar = document.createElement("div");
-
-				$("#audioVisualizer").append(newBar);
-
-				$(newBar).attr("id","freq"+index);
-			});
-
-
-		}
-	},
+	// visualizer:{
+	// 	ctx:null,
+	// 	audioSrc:null,
+	// 	analyser:null,
+	// 	frequencyData:null,
+	// 	renderFrame:function(){
+	// 		requestAnimationFrame(audioPlayer.visualizer.renderFrame);
+	//
+	// 		audioPlayer.visualizer.analyser.getByteFrequencyData(audioPlayer.visualizer.frequencyData);
+	//
+	// 		$("#audioKnobs").css("left","-250px");
+	//
+	// 		$("#audioVisualizer").html("");
+	// 		$("#audioVisualizer").css("display","block");
+	//
+	// 		audioPlayer.visualizer.frequencyData.forEach(function(currentValue,index){
+	// 			var newBar = document.createElement("div");
+	//
+	// 			$("#audioVisualizer").append(newBar);
+	//
+	// 			$(newBar).attr("id","freq"+index);
+	// 		});
+	//
+	//
+	// 	}
+	// },
 	volume:1,
 	createAudio:function(hosted,id){
 		// If statement declares if given id is a file name
@@ -201,9 +201,9 @@ var audioPlayer = {
 			// Hide loading gif
 			$("#loadingDiv").css("display","none");
 
-			if(audioPlayer.isChrome){
-				audioPlayer.createVisualizer();
-			}
+			// if(audioPlayer.isChrome){
+			// 	audioPlayer.createVisualizer();
+			// }
 
 			// Stop looping
 			clearInterval(audioPlayer.checkLoaded);
@@ -214,7 +214,7 @@ var audioPlayer = {
 	},
 	play:function(){
 		audioPlayer.audio.play();
-		audioPlayer.visualizer.renderFrame();
+		// audioPlayer.visualizer.renderFrame();
 
 		// These classes control the background on the play/pause
 		// buttons to show which one is active
@@ -683,17 +683,17 @@ var audioPlayer = {
 			}
 		}
 	},
-	createVisualizer:function(){
-		audioPlayer.visualizer.ctx = new AudioContext();
-		audioPlayer.visualizer.audioSrc = audioPlayer.visualizer.ctx.createMediaElementSource(audioPlayer.audio);
-		audioPlayer.visualizer.analyser = audioPlayer.visualizer.ctx.createAnalyser();
-
-		audioPlayer.visualizer.audioSrc.connect(audioPlayer.visualizer.analyser);
-
-		audioPlayer.visualizer.frequencyData = new Uint8Array(audioPlayer.visualizer.analyser.frequencyBinCount);
-
-		// audioPlayer.visualizer.renderFrame();
-	},
+	// createVisualizer:function(){
+	// 	audioPlayer.visualizer.ctx = new AudioContext();
+	// 	audioPlayer.visualizer.audioSrc = audioPlayer.visualizer.ctx.createMediaElementSource(audioPlayer.audio);
+	// 	audioPlayer.visualizer.analyser = audioPlayer.visualizer.ctx.createAnalyser();
+	//
+	// 	audioPlayer.visualizer.audioSrc.connect(audioPlayer.visualizer.analyser);
+	//
+	// 	audioPlayer.visualizer.frequencyData = new Uint8Array(audioPlayer.visualizer.analyser.frequencyBinCount);
+	//
+	// 	// audioPlayer.visualizer.renderFrame();
+	// },
 	runVisualizer:function(){
 
 	}
