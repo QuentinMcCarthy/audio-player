@@ -109,7 +109,12 @@
 	height:325px;
 	background-color:black;
 }
-#audioViuaslizer {
+#audioVisualizer div {
+	width:10px;
+	height:10px;
+	background-color:white;
+	position:absolute;
+	bottom:0;
 	transition:0.1s all linear;
 }
 

@@ -77,18 +77,22 @@ var audioPlayer = {
 	tickTen:null,
 	visualizer:{
 		ctx:null,
+		audio:null,
 		audioSrc:null,
 		analyser:null,
 		frequencyData:null,
+		updateTick:null,
+		divCount:10,
 		createVisualizer:function(){
 			var i;
 
-			for(i = 0; i < 1000; i++){
+			for(i = 0; i < audioPlayer.visualizer.divCount; i++){
 				var newBar = document.createElement("div");
 
 				$("#audioVisualizer").append(newBar);
 
 				$(newBar).attr("id","freq"+i);
+				$(newBar).css("left",((i*50)+12.5)+"px");
 			}
 
 			$("#audioKnobs").css("left","-250px");
@@ -96,7 +100,7 @@ var audioPlayer = {
 		},
 		loadAudio:function(){
 			audioPlayer.visualizer.ctx = new AudioContext();
-			audioPlayer.visualizer.audioSrc = audioPlayer.visualizer.ctx.createMediaElementSource(audioPlayer.audio);
+			audioPlayer.visualizer.audioSrc = audioPlayer.visualizer.ctx.createMediaElementSource(audioPlayer.visualizer.audio);
 			audioPlayer.visualizer.analyser = audioPlayer.visualizer.ctx.createAnalyser();
 
 			audioPlayer.visualizer.audioSrc.connect(audioPlayer.visualizer.analyser);
@@ -107,8 +111,21 @@ var audioPlayer = {
 			requestAnimationFrame(audioPlayer.visualizer.renderFrame);
 
 			audioPlayer.visualizer.analyser.getByteFrequencyData(audioPlayer.visualizer.frequencyData);
+
+			// audioPlayer.visualizer.updateTick = setInterval(audioPlayer.visualizer.visualizerUpdate, 1000);
 		},
-		visualizerUpdate:function(){}
+		visualizerUpdate:function(){
+			$("#freq0").css("height",audioPlayer.visualizer.frequencyData[0]);
+			$("#freq1").css("height",audioPlayer.visualizer.frequencyData[10]);
+			$("#freq2").css("height",audioPlayer.visualizer.frequencyData[20]);
+			$("#freq3").css("height",audioPlayer.visualizer.frequencyData[30]);
+			$("#freq4").css("height",audioPlayer.visualizer.frequencyData[40]);
+			$("#freq5").css("height",audioPlayer.visualizer.frequencyData[50]);
+			$("#freq6").css("height",audioPlayer.visualizer.frequencyData[60]);
+			$("#freq7").css("height",audioPlayer.visualizer.frequencyData[70]);
+			$("#freq8").css("height",audioPlayer.visualizer.frequencyData[80]);
+			$("#freq9").css("height",audioPlayer.visualizer.frequencyData[90]);
+		}
 	},
 	volume:1,
 	createAudio:function(hosted,id){
@@ -117,6 +134,7 @@ var audioPlayer = {
 		if(hosted){
 			// Use audio constructor in audio var
 			audioPlayer.audio = new Audio(id);
+			audioPlayer.visualizer.audio = new Audio(id);
 		}
 		else{
 			// Use audio constructor in audio var
@@ -125,6 +143,7 @@ var audioPlayer = {
 
 		// Removing CORS access restriction
 		audioPlayer.audio.crossOrigin = "anonymous";
+		audioPlayer.visualizer.audio.crossOrigin = "anonymous";
 
 		// Cannot play; loading
 		audioPlayer.canPlay = false;
@@ -214,7 +233,7 @@ var audioPlayer = {
 			clearInterval(audioPlayer.checkLoaded);
 
 			if(audioPlayer.isChrome){
-				audioPlayer.visualizer.loadAudio
+				audioPlayer.visualizer.loadAudio();
 			}
 
 			// Run trackProgress every tenth of a second
@@ -223,7 +242,11 @@ var audioPlayer = {
 	},
 	play:function(){
 		audioPlayer.audio.play();
-		audioPlayer.visualizer.renderFrame();
+		audioPlayer.visualizer.audio.play();
+
+		if(audioPlayer.isChrome){
+			audioPlayer.visualizer.renderFrame();
+		}
 
 		// These classes control the background on the play/pause
 		// buttons to show which one is active
