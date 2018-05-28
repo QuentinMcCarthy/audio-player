@@ -122,22 +122,9 @@ var audioPlayer = {
 			for(i = 0; i < audioPlayer.visualizer.bars.length; i++) {
 				var bar = audioPlayer.visualizer.bars[i];
 				$(bar).css("height", audioPlayer.visualizer.frequencyData[i] + 'px');
+				$(bar).css("background-color","rgb("+audioPlayer.visualizer.frequencyData[i]+",0,0)");
 			}
-
-			// audioPlayer.visualizer.updateTick = setInterval(audioPlayer.visualizer.visualizerUpdate, 1000);
 		},
-		// visualizerUpdate:function(){
-		// 	$("#freq0").css("height",audioPlayer.visualizer.frequencyData[0]);
-		// 	$("#freq1").css("height",audioPlayer.visualizer.frequencyData[10]);
-		// 	$("#freq2").css("height",audioPlayer.visualizer.frequencyData[20]);
-		// 	$("#freq3").css("height",audioPlayer.visualizer.frequencyData[30]);
-		// 	$("#freq4").css("height",audioPlayer.visualizer.frequencyData[40]);
-		// 	$("#freq5").css("height",audioPlayer.visualizer.frequencyData[50]);
-		// 	$("#freq6").css("height",audioPlayer.visualizer.frequencyData[60]);
-		// 	$("#freq7").css("height",audioPlayer.visualizer.frequencyData[70]);
-		// 	$("#freq8").css("height",audioPlayer.visualizer.frequencyData[80]);
-		// 	$("#freq9").css("height",audioPlayer.visualizer.frequencyData[90]);
-		// }
 	},
 	volume:1,
 	createAudio:function(hosted,id){

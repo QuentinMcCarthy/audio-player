@@ -86,7 +86,6 @@
 
 #audioVisualizer div {
   height: 10px;
-  background-color: red;
   position: absolute;
   bottom: 0;
   transition: 0.1s all linear; }
