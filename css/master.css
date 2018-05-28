@@ -78,16 +78,15 @@
 #audioVisualizer {
   position: absolute;
   top: 10px;
-  left: 375px;
+  left: 380px;
   display: none;
-  width: 485px;
+  width: 480px;
   height: 325px;
   background-color: black; }
 
 #audioVisualizer div {
-  width: 10px;
   height: 10px;
-  background-color: white;
+  background-color: red;
   position: absolute;
   bottom: 0;
   transition: 0.1s all linear; }

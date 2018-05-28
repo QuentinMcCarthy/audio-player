@@ -76,23 +76,28 @@ var audioPlayer = {
 	},
 	tickTen:null,
 	visualizer:{
-		ctx:null,
+		analyser:null,
 		audio:null,
 		audioSrc:null,
-		analyser:null,
+		barWidth:10,
+		barCount:48,
+		bars:[],
+		ctx:null,
 		frequencyData:null,
+		maxHeight:255,
 		updateTick:null,
-		divCount:10,
 		createVisualizer:function(){
 			var i;
 
-			for(i = 0; i < audioPlayer.visualizer.divCount; i++){
+			for(i = 0; i < audioPlayer.visualizer.barCount; i++){
 				var newBar = document.createElement("div");
 
 				$("#audioVisualizer").append(newBar);
 
-				$(newBar).attr("id","freq"+i);
-				$(newBar).css("left",((i*50)+12.5)+"px");
+				$(newBar).css("width",audioPlayer.visualizer.barWidth + "px");
+				$(newBar).css("left",(audioPlayer.visualizer.barWidth * (i)) + "px");
+
+				audioPlayer.visualizer.bars.push(newBar);
 			}
 
 			$("#audioKnobs").css("left","-250px");
@@ -108,24 +113,31 @@ var audioPlayer = {
 			audioPlayer.visualizer.frequencyData = new Uint8Array(audioPlayer.visualizer.analyser.frequencyBinCount);
 		},
 		renderFrame:function(){
-			requestAnimationFrame(audioPlayer.visualizer.renderFrame);
+			audioPlayer.visualizer.updateTick = requestAnimationFrame(audioPlayer.visualizer.renderFrame);
 
 			audioPlayer.visualizer.analyser.getByteFrequencyData(audioPlayer.visualizer.frequencyData);
 
+			var i;
+
+			for(i = 0; i < audioPlayer.visualizer.bars.length; i++) {
+				var bar = audioPlayer.visualizer.bars[i];
+				$(bar).css("height", audioPlayer.visualizer.frequencyData[i] + 'px');
+			}
+
 			// audioPlayer.visualizer.updateTick = setInterval(audioPlayer.visualizer.visualizerUpdate, 1000);
 		},
-		visualizerUpdate:function(){
-			$("#freq0").css("height",audioPlayer.visualizer.frequencyData[0]);
-			$("#freq1").css("height",audioPlayer.visualizer.frequencyData[10]);
-			$("#freq2").css("height",audioPlayer.visualizer.frequencyData[20]);
-			$("#freq3").css("height",audioPlayer.visualizer.frequencyData[30]);
-			$("#freq4").css("height",audioPlayer.visualizer.frequencyData[40]);
-			$("#freq5").css("height",audioPlayer.visualizer.frequencyData[50]);
-			$("#freq6").css("height",audioPlayer.visualizer.frequencyData[60]);
-			$("#freq7").css("height",audioPlayer.visualizer.frequencyData[70]);
-			$("#freq8").css("height",audioPlayer.visualizer.frequencyData[80]);
-			$("#freq9").css("height",audioPlayer.visualizer.frequencyData[90]);
-		}
+		// visualizerUpdate:function(){
+		// 	$("#freq0").css("height",audioPlayer.visualizer.frequencyData[0]);
+		// 	$("#freq1").css("height",audioPlayer.visualizer.frequencyData[10]);
+		// 	$("#freq2").css("height",audioPlayer.visualizer.frequencyData[20]);
+		// 	$("#freq3").css("height",audioPlayer.visualizer.frequencyData[30]);
+		// 	$("#freq4").css("height",audioPlayer.visualizer.frequencyData[40]);
+		// 	$("#freq5").css("height",audioPlayer.visualizer.frequencyData[50]);
+		// 	$("#freq6").css("height",audioPlayer.visualizer.frequencyData[60]);
+		// 	$("#freq7").css("height",audioPlayer.visualizer.frequencyData[70]);
+		// 	$("#freq8").css("height",audioPlayer.visualizer.frequencyData[80]);
+		// 	$("#freq9").css("height",audioPlayer.visualizer.frequencyData[90]);
+		// }
 	},
 	volume:1,
 	createAudio:function(hosted,id){
@@ -242,10 +254,10 @@ var audioPlayer = {
 	},
 	play:function(){
 		audioPlayer.audio.play();
-		audioPlayer.visualizer.audio.play();
 
 		if(audioPlayer.isChrome){
-			audioPlayer.visualizer.renderFrame();
+			audioPlayer.visualizer.audio.play();
+			audioPlayer.visualizer.updateTick = requestAnimationFrame(audioPlayer.visualizer.renderFrame);
 		}
 
 		// These classes control the background on the play/pause
@@ -255,6 +267,8 @@ var audioPlayer = {
 	},
 	pause:function(){
 		audioPlayer.audio.pause();
+
+		cancelAnimationFrame(audioPlayer.visualizer.updateTick);
 
 		// These classes control the background on the play/pause
 		// buttons to show which one is active
