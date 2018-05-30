@@ -115,7 +115,6 @@ var audioPlayer = {
 		},
 		renderFrame:function(){
 			audioPlayer.visualizer.updateTick = requestAnimationFrame(audioPlayer.visualizer.renderFrame);
-			console.log(audioPlayer.visualizer.updateTick);
 
 			audioPlayer.visualizer.analyser.getByteFrequencyData(audioPlayer.visualizer.frequencyData);
 
@@ -270,7 +269,6 @@ var audioPlayer = {
 
 		if(audioPlayer.isChrome){
 			cancelAnimationFrame(audioPlayer.visualizer.updateTick);
-			console.log(audioPlayer.visualizer.updateTick);
 		}
 
 		// These classes control the background on the play/pause
