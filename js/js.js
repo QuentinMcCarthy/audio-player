@@ -20,8 +20,8 @@ var audioPlayer = {
 			hostedFile:"https://dl.dropboxusercontent.com/s/9pamibo40ycabe1/_EnV_%20-%20Heaven.mp3"
 		},
 		{
-			localFile:"ｉ ｎ ｔ ｅ ｒ ｓ ｐ ａ ｃ ｅ.mp3",
-			hostedFile:"https://dl.dropboxusercontent.com/s/p07gh6bur678t5t/%EF%BD%89%20%EF%BD%8E%20%EF%BD%94%20%EF%BD%85%20%EF%BD%92%20%EF%BD%93%20%EF%BD%90%20%EF%BD%81%20%EF%BD%83%20%EF%BD%85.mp3"
+			localFile:"starcadian_interspace.mp3",
+			hostedFile:"https://dl.dropboxusercontent.com/s/go1iz3g4hap1xuv/Starcadian%20-%20Interspace.mp3"
 		},
 		{
 			localFile:"Getting Stronger - Michelle Creber Black Gryph0n Baasik.mp3",
@@ -123,7 +123,7 @@ var audioPlayer = {
 			for(i = 0; i < audioPlayer.visualizer.bars.length; i++) {
 				var bar = audioPlayer.visualizer.bars[i];
 				$(bar).css("height", audioPlayer.visualizer.frequencyData[i] + 'px');
-				$(bar).css("background-color","rgb("+audioPlayer.visualizer.frequencyData[i]+",0,0)");
+				$(bar).css("background-color","rgb("+Math.round(audioPlayer.visualizer.frequencyData[i])+",0,0)");
 			}
 		},
 	},
