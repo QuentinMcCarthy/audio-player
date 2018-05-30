@@ -115,6 +115,7 @@ var audioPlayer = {
 		},
 		renderFrame:function(){
 			audioPlayer.visualizer.updateTick = requestAnimationFrame(audioPlayer.visualizer.renderFrame);
+			console.log(audioPlayer.visualizer.updateTick);
 
 			audioPlayer.visualizer.analyser.getByteFrequencyData(audioPlayer.visualizer.frequencyData);
 
@@ -269,6 +270,7 @@ var audioPlayer = {
 
 		if(audioPlayer.isChrome){
 			cancelAnimationFrame(audioPlayer.visualizer.updateTick);
+			console.log(audioPlayer.visualizer.updateTick);
 		}
 
 		// These classes control the background on the play/pause
@@ -293,7 +295,7 @@ var audioPlayer = {
 	},
 	skipBackward:function(){
 		if(audioPlayer.currentTrack>0){
-			audioPlayer.audio.pause();
+			audioPlayer.pause();
 
 			audioPlayer.currentTrack--;
 
@@ -302,7 +304,7 @@ var audioPlayer = {
 	},
 	skipForward:function(){
 		if(audioPlayer.currentTrack<audioPlayer.maxTracks){
-			audioPlayer.audio.pause();
+			audioPlayer.pause()
 
 			audioPlayer.currentTrack++
 
@@ -434,9 +436,8 @@ var audioPlayer = {
 
 		// If the audio is finished
 		if(audioPlayer.audio.ended){
+			audioPlayer.pause();
 			if(audioPlayer.repeat == "single"){
-				audioPlayer.pause();
-
 				audioPlayer.audio.currentTime = 0;
 
 				setTimeout(audioPlayer.play, 1000);
