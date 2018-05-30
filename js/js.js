@@ -83,6 +83,7 @@ var audioPlayer = {
 		barWidth:5,		// Cap at 5 width and 96 count
 		barCount:96,	// Higher values cause performance issues
 		bars:[],
+		barColor:1,
 		ctx:null,
 		frequencyData:null,
 		maxHeight:255,
@@ -99,6 +100,8 @@ var audioPlayer = {
 				$(newBar).css("left",(audioPlayer.visualizer.barWidth * (i)) + "px");
 
 				audioPlayer.visualizer.bars.push(newBar);
+
+				audioPlayer.visualizer.barColor = Math.floor(1 + (Math.random() * 3));
 			}
 
 			$("#audioKnobs").css("left","-250px");
@@ -125,7 +128,16 @@ var audioPlayer = {
 				var heightCap = (parseInt($("#audioVisualizer").css("height")) - 25);
 
 				$(bar).css("height",(heightCap * (audioPlayer.visualizer.frequencyData[i] / 255)) + 'px');
-				$(bar).css("background-color","rgb("+Math.round(audioPlayer.visualizer.frequencyData[i])+",0,0)");
+
+				if(audioPlayer.visualizer.barColor === 1){
+					$(bar).css("background-color","rgb("+Math.round(audioPlayer.visualizer.frequencyData[i])+",0,0)");
+				}
+				else if(audioPlayer.visualizer.barColor === 2){
+					$(bar).css("background-color","rgb(0,"+Math.round(audioPlayer.visualizer.frequencyData[i])+",0)");
+				}
+				else{
+					$(bar).css("background-color","rgb(0,0,"+Math.round(audioPlayer.visualizer.frequencyData[i])+")");
+				}
 			}
 		},
 	},
