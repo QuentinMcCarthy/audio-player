@@ -21,7 +21,7 @@
 // CSS
 
 #audioPlayer {
-	@include position(fixed,"",25vw);
+	@include position(fixed,"",0vw);
 }
 
 #audioKnobs {
@@ -211,20 +211,44 @@
 	color:grey;
 }
 
-@media screen and (max-width:1150px){
+@media screen and (min-width:225px){
 	#audioPlayer {
-		left:11vw;
+		left:4vw;
 	}
 }
 
-@media screen and (max-width:975px){
+@media screen and (min-width:1050px){
 	#audioPlayer {
-		left:3vw;
+		left:8vw;
 	}
 }
 
-@media screen and (max-width:895px){
+@media screen and (min-width:1300px){
 	#audioPlayer {
-		left:0
+		left:15vw;
+	}
+}
+
+@media screen and (min-width:1500px){
+	#audioPlayer {
+		left:20vw;
+	}
+}
+
+@media screen and (min-width:1800px){
+	#audioPlayer {
+		left:25vw;
+	}
+}
+
+@media screen and (min-width:2300px){
+	#audioPlayer {
+		left:35vw;
+	}
+}
+
+@media screen and (min-width:5000px){
+	#audioPlayer {
+		left:42.5vw;
 	}
 }
