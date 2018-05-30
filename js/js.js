@@ -78,6 +78,7 @@ var audioPlayer = {
 	visualizer:{
 		analyser:null,
 		audio:null,
+		audioReady:false,
 		audioSrc:null,
 		barWidth:10,
 		barCount:48,
@@ -188,55 +189,64 @@ var audioPlayer = {
 			}
 		}
 
-		audioReady = false;
+		audioPlayer.audioReady = false;
 
 		audioPlayer.audio.canplaythrough = function(){
-			audioReady = true;
+			audioPlayer.audioReady = true;
 		}
+
+		audioPlayer.visualizer.audioReady = false;
+
+		audioPlayer.visualizer.audio.canplaythrough = function(){
+			audioPlayer.visualizer.audioReady = true;
+		}
+
 
 		audioPlayer.checkLoaded = setInterval(audioPlayer.isLoaded, 100);
 	},
 	isLoaded:function(){
-		if(audioPlayer.audio.readyState == 4 || audioReady){
-			// Play the created audio
-			// audioPlayer.play();
-			// $("#playButton").addClass("activeControl");
-			// $("#pauseButton").removeClass("activeControl");
+		if(audioPlayer.audio.readyState == 4 || audioPlayer.audioReady){
+			if((!audioPlayer.isChrome) ||  (audioPlayer.visualizer.audio.readyState == 4) || (audioPlayer.visualizer.audioReady)){
+				// Play the created audio
+				// audioPlayer.play();
+				// $("#playButton").addClass("activeControl");
+				// $("#pauseButton").removeClass("activeControl");
 
-			// Pause the created audio
-			// audioPlayer.pause();
-			// $("#playButton").removeClass("activeControl");
-			// $("#pauseButton").addClass("activeControl");
+				// Pause the created audio
+				// audioPlayer.pause();
+				// $("#playButton").removeClass("activeControl");
+				// $("#pauseButton").addClass("activeControl");
 
-			// if(currentTrack>0){
-			if(audioPlayer.isPlaying){
-				setTimeout(audioPlayer.play, 500);
+				// if(currentTrack>0){
+				if(audioPlayer.isPlaying){
+					setTimeout(audioPlayer.play, 500);
+				}
+				else{
+					setTimeout(audioPlayer.pause, 500);
+				}
+
+				// Set the volume of the created audio
+				audioPlayer.setVol(audioPlayer.volume);
+
+				// Keep track of the current audio track
+				// audioPlayer.currentTrack++
+
+				// Tell everything else that that they can fire
+				audioPlayer.canPlay = true;
+
+				// Hide loading gif
+				$("#loadingDiv").css("display","none");
+
+				// Stop looping
+				clearInterval(audioPlayer.checkLoaded);
+
+				if(audioPlayer.isChrome){
+					audioPlayer.visualizer.loadAudio();
+				}
+
+				// Run trackProgress every tenth of a second
+				audioPlayer.tickTen = setInterval(audioPlayer.trackProgress, 100);
 			}
-			else{
-				setTimeout(audioPlayer.pause, 500);
-			}
-
-			// Set the volume of the created audio
-			audioPlayer.setVol(audioPlayer.volume);
-
-			// Keep track of the current audio track
-			// audioPlayer.currentTrack++
-
-			// Tell everything else that that they can fire
-			audioPlayer.canPlay = true;
-
-			// Hide loading gif
-			$("#loadingDiv").css("display","none");
-
-			// Stop looping
-			clearInterval(audioPlayer.checkLoaded);
-
-			if(audioPlayer.isChrome){
-				audioPlayer.visualizer.loadAudio();
-			}
-
-			// Run trackProgress every tenth of a second
-			audioPlayer.tickTen = setInterval(audioPlayer.trackProgress, 100);
 		}
 	},
 	play:function(){
@@ -255,7 +265,9 @@ var audioPlayer = {
 	pause:function(){
 		audioPlayer.audio.pause();
 
-		cancelAnimationFrame(audioPlayer.visualizer.updateTick);
+		if(audioPlayer.isChrome){
+			cancelAnimationFrame(audioPlayer.visualizer.updateTick);
+		}
 
 		// These classes control the background on the play/pause
 		// buttons to show which one is active
