@@ -16,6 +16,10 @@ var audioPlayer = {
 	maxTracks:null,
 	playlist:[
 		{
+			localFile:"wake_me_up_choir.mp3",
+			hostedFile:"https://dl.dropboxusercontent.com/s/7qse22qrjqhcbyj/wake_me_up_choir.mp3"
+		},
+		{
 			localFile:"_EnV_ - Heaven.mp3",
 			hostedFile:"https://dl.dropboxusercontent.com/s/9pamibo40ycabe1/_EnV_%20-%20Heaven.mp3"
 		},
