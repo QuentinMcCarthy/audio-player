@@ -87,6 +87,7 @@ var audioPlayer = {
 		audioSrc:null,
 		barWidth:5,		// Cap at 5 width and 96 count
 		barCount:96,	// Higher values cause performance issues
+		barRotation:10,
 		bars:[],
 		barColor:1,
 		ctx:null,
@@ -94,15 +95,14 @@ var audioPlayer = {
 		maxHeight:255,
 		updateTick:null,
 		createVisualizer:function(){
-			var i;
-
-			for(i = 0; i < audioPlayer.visualizer.barCount; i++){
+			for(var i = 0; i < audioPlayer.visualizer.barCount; i++){
 				var newBar = document.createElement("div");
 
 				$("#audioVisualizer").append(newBar);
 
 				$(newBar).css("width",audioPlayer.visualizer.barWidth + "px");
-				$(newBar).css("left",(audioPlayer.visualizer.barWidth * (i)) + "px");
+				$(newBar).css("left",(audioPlayer.visualizer.barWidth * i)+ "px");
+				$(newBar).css("transform","rotate("+(audioPlayer.visualizer.barRotation * i)+"deg)");
 
 				audioPlayer.visualizer.bars.push(newBar);
 
@@ -167,7 +167,7 @@ var audioPlayer = {
 		audioPlayer.canPlay = false;
 
 		// Show loading gif
-		$("#loadingDiv").css("display","block");
+		// $("#loadingDiv").css("display","block");
 
 		// Audio function for if the file is not returned
 		audioPlayer.audio.onerror = function(){
@@ -645,10 +645,15 @@ var audioPlayer = {
 		// Audio volume knob
 		$("#audioVol").knob({
 			"angleOffset":-90,
-			"angleArc":180,
+			// "angleArc":180,
 			// "displayInput":false,
 			"displayPrevious":true,
-			"width":"250",
+			// "width":"250",
+			"width":"600",
+			"height":"600",
+			"thickness":.15,
+			"fgColor":"blue",
+			"bgColor":"lightblue",
 			"min":0,
 			"max":1,
 			"step":0.01,

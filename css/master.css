@@ -1,198 +1,55 @@
-#audioPlayer {
-  position: fixed;
-  left: 0vw; }
+* {
+	overflow: hidden;
+}
 
-#audioKnobs {
-  position: absolute; }
+body {
+	background-color: black;
+}
+
+#audioPlayer {
+	margin: 0 auto;
+	width: 100vw;
+}
 
 #audioVolDiv {
-  position: absolute;
-  top: 50px;
-  left: 325px;
-  z-index: 2; }
+	margin: 11vh auto;
+	width: fit-content;
+}
+
+#audioVol {
+	/* Values marked as !important to override jQuery knob inline styles */
+	font-size: 3em !important;
+}
 
 #audioProgDiv, #audioProgStyleDiv {
-  position: absolute;
-  top: 100px;
-  left: 375px;
-  z-index: 1; }
-
-/*	These values have to be marked as !important to override the element styles
-	From the jQuery knobs */
-#audioVol {
-  font-size: 2em !important;
-  top: -120px;
-  left: 272.5px;
-  height: 35px !important;
-  width: 80px !important; }
-
-#audioProg {
-  /* color:rgb(135,206,235) !important; */
-  font-size: 2em !important; }
+	display: none;
+}
 
 #loadingDiv {
-  position: absolute;
-  top: 110px;
-  left: 385px;
-  display: none;
-  z-index: 1; }
-
-#loadingAnim {
-  height: 130px;
-  width: 130px; }
-
-#controls {
-  position: absolute;
-  top: 275px;
-  left: 345px;
-  font-size: 1.5em;
-  z-index: 1; }
-
-#controls div {
-  display: inline-block;
-  padding: 5px;
-  cursor: pointer;
-  position: absolute; }
-
-#repeatButton {
-  /* top:-8px; */ }
-
-#repeatButton img {
-  position: relative;
-  /* top:7px; */
-  width: 30px;
-  /* height:24px; */ }
-
-#backButton {
-  left: 45px; }
-
-#playButton {
-  left: 85px; }
-
-#pauseButton {
-  left: 125px; }
-
-#skipButton {
-  left: 165px; }
+	display: none;
+}
 
 #audioVisualizer {
-  position: absolute;
-  top: 10px;
-  left: 380px;
-  display: none;
-  width: 480px;
-  height: 325px;
-  background-color: black; }
+	position: absolute;
+	top: 30%;
+	left: 30%;
+	display: block;
+	width: 480px;
+	height: 325px;
+	background-color: white;
+}
 
 #audioVisualizer div {
-  height: 10px;
-  position: absolute;
-  bottom: 0;
-  transition: 0.1s all linear; }
+	height: 10px;
+	background-color: red;
+	position: absolute;
+	bottom: 0;
+}
 
-#playlistControl {
-  position: absolute;
-  top: 350px;
-  left: 50px;
-  background-color: grey;
-  height: 50vh;
-  width: 800px;
-  padding: 7px 5px 5px 5px; }
-
-#audioInputDiv {
-  width: fit-content;
-  margin: 0 auto; }
-
-#audioInput {
-  display: inline-block;
-  height: 20px;
-  width: 770px;
-  font-size: 0.75em; }
-
-#audioInputBtn {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  cursor: pointer; }
-
-#audioInputBtn i {
-  position: relative;
-  top: 2px;
-  left: 3px; }
-
-#playlistView {
-  height: 46vh;
-  width: 100%;
-  margin-top: 5px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  word-wrap: break-word; }
-
-#playlistCurrentPos {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  height: 0;
-  width: 0;
-  text-align: center; }
-
-#playlistCurrent {
-  position: absolute;
-  top: 0;
-  left: -5px;
-  height: 20px;
-  width: 20px; }
-
-.playlistItem {
-  border-left: 3px solid white;
-  padding-left: 5px; }
-
-.playlistItem p {
-  margin: 5px 0; }
-
-.playlistBtnPos {
-  position: relative;
-  top: -5px;
-  left: 750px;
-  height: 0;
-  width: 0;
-  text-align: center; }
-
-.playlistBtn {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  cursor: pointer; }
+#controls div {
+	cursor: pointer;
+}
 
 /* Javascript classes */
-.activeControl {
-  background-color: grey; }
-
-.disabled {
-  color: grey; }
-
-@media screen and (min-width: 225px) {
-  #audioPlayer {
-    left: 4vw; } }
-@media screen and (min-width: 1050px) {
-  #audioPlayer {
-    left: 8vw; } }
-@media screen and (min-width: 1300px) {
-  #audioPlayer {
-    left: 15vw; } }
-@media screen and (min-width: 1500px) {
-  #audioPlayer {
-    left: 20vw; } }
-@media screen and (min-width: 1800px) {
-  #audioPlayer {
-    left: 25vw; } }
-@media screen and (min-width: 2300px) {
-  #audioPlayer {
-    left: 35vw; } }
-@media screen and (min-width: 5000px) {
-  #audioPlayer {
-    left: 42.5vw; } }
 
 /*# sourceMappingURL=master.css.map */
