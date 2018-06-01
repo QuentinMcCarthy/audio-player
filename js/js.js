@@ -13,7 +13,7 @@ var audioPlayer = {
 	isOpera:undefined,
 	isPlaying:false,
 	isSafari:undefined,
-	maxTracks:null,
+	maxTracks:undefined,
 	playlist:[
 		{
 			localFile:"wake_me_up_choir.mp3",
@@ -79,6 +79,7 @@ var audioPlayer = {
 		all:"img/repeat/repeat-all.svg"
 	},
 	tickTen:null,
+	volume:1,
 	visualizer:{
 		analyser:null,
 		audio:null,
@@ -145,7 +146,6 @@ var audioPlayer = {
 			}
 		},
 	},
-	volume:1,
 	createAudio:function(hosted,id){
 		// If statement declares if given id is a file name
 		// Or a URL
@@ -401,8 +401,10 @@ var audioPlayer = {
 
 		// Play the audio based on the current track
 		// Error prevention
-		if(audioPlayer.isValid(audioPlayer.playlist[audioPlayer.currentTrack].hostedFile)){
-			audioPlayer.createAudio(true,audioPlayer.playlist[audioPlayer.currentTrack].hostedFile);
+		if(audioPlayer.currentTrack <= audioPlayer.maxTracks){
+			if(audioPlayer.isValid(audioPlayer.playlist[audioPlayer.currentTrack].hostedFile)){
+				audioPlayer.createAudio(true,audioPlayer.playlist[audioPlayer.currentTrack].hostedFile);
+			}
 		}
 	},
 	trackProgress:function(){
