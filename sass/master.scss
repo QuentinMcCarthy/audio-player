@@ -33,6 +33,11 @@ body {
 	width:$audioPlayerWidth;
 }
 
+#audioVolVisPos {
+	margin:11vh auto;
+	width:fit-content;
+}
+
 #audioKnobs {
 	// 	@include position(absolute,"","");
 }
@@ -40,8 +45,8 @@ body {
 #audioVolDiv {
 	// 	@include position(absolute,50px,325px);
 	// 	z-index:2;
-	margin:11vh auto;
-	width:fit-content;
+	@include position(relative,"","");
+	z-index:20;
 }
 #audioVol {
 	/* Values marked as !important to override jQuery knob inline styles */
@@ -79,19 +84,21 @@ body {
 	// 	width:480px;
 	// 	height:325px;
 	// 	background-color:black;
-	@include position(absolute,30%,30%);
+	@include position(relative,-560px,40px);
 	display:block;
-	width:480px;
-	height:325px;
-	background-color:white;
+	width:520px;
+	height:520px;
+	// background-color:white;
+	z-index:10;
 
 	div {
 		// width:10px;
-		height:10px;
+		// height:50px;
 		background-color:red;
 		position:absolute;
 		bottom:0;
-		// transition:0.1s all linear;
+		transition:0.1s all linear;
+		opacity:0.5;
 	}
 }
 

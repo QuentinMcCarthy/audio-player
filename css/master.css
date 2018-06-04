@@ -1,54 +1,48 @@
 * {
-	overflow: hidden;
-}
+  overflow: hidden; }
 
 body {
-	background-color: black;
-}
+  background-color: black; }
 
 #audioPlayer {
-	margin: 0 auto;
-	width: 100vw;
-}
+  margin: 0 auto;
+  width: 100vw; }
+
+#audioVolVisPos {
+  margin: 11vh auto;
+  width: fit-content; }
 
 #audioVolDiv {
-	margin: 11vh auto;
-	width: fit-content;
-}
+  position: relative;
+  z-index: 20; }
 
 #audioVol {
-	/* Values marked as !important to override jQuery knob inline styles */
-	font-size: 3em !important;
-}
+  /* Values marked as !important to override jQuery knob inline styles */
+  font-size: 3em !important; }
 
 #audioProgDiv, #audioProgStyleDiv {
-	display: none;
-}
+  display: none; }
 
 #loadingDiv {
-	display: none;
-}
+  display: none; }
 
 #audioVisualizer {
-	position: absolute;
-	top: 30%;
-	left: 30%;
-	display: block;
-	width: 480px;
-	height: 325px;
-	background-color: white;
-}
-
-#audioVisualizer div {
-	height: 10px;
-	background-color: red;
-	position: absolute;
-	bottom: 0;
-}
+  position: relative;
+  top: -560px;
+  left: 40px;
+  display: block;
+  width: 520px;
+  height: 520px;
+  z-index: 10; }
+  #audioVisualizer div {
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    transition: 0.1s all linear;
+    opacity: 0.5; }
 
 #controls div {
-	cursor: pointer;
-}
+  cursor: pointer; }
 
 /* Javascript classes */
 

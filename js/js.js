@@ -87,7 +87,7 @@ var audioPlayer = {
 		audioSrc:null,
 		barWidth:5,		// Cap at 5 width and 96 count
 		barCount:96,	// Higher values cause performance issues
-		barRotation:10,
+		barRotation:1.88,
 		bars:[],
 		barColor:1,
 		ctx:null,
@@ -98,11 +98,18 @@ var audioPlayer = {
 			for(var i = 0; i < audioPlayer.visualizer.barCount; i++){
 				var newBar = document.createElement("div");
 
+				var centerX = parseInt($("#audioVisualizer").css("width")) / 2;
+				var centerY = parseInt($("#audioVisualizer").css("height")) / 2;
+
 				$("#audioVisualizer").append(newBar);
 
 				$(newBar).css("width",audioPlayer.visualizer.barWidth + "px");
 				$(newBar).css("left",(audioPlayer.visualizer.barWidth * i)+ "px");
-				$(newBar).css("transform","rotate("+(audioPlayer.visualizer.barRotation * i)+"deg)");
+
+				// Future code relating to circular positioning
+				// $(newBar).css("transform","rotate("+(90 + audioPlayer.visualizer.barRotation * i)+"deg)");
+				// $(newBar).css("left",(centerX + Math.round((150 * Math.cos(i * (2 * Math.PI / audioPlayer.visualizer.barCount))))) + "px");
+				// $(newBar).css("top",(centerY + Math.round((150 * Math.sin(i * (2 * Math.PI / audioPlayer.visualizer.barCount))))) + "px");
 
 				audioPlayer.visualizer.bars.push(newBar);
 
@@ -647,7 +654,7 @@ var audioPlayer = {
 			"angleOffset":-90,
 			// "angleArc":180,
 			// "displayInput":false,
-			"displayPrevious":true,
+			// "displayPrevious":true,
 			// "width":"250",
 			"width":"600",
 			"height":"600",
