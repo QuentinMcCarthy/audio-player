@@ -21,15 +21,15 @@ var audioPlayer = {
 		},
 		{
 			localFile:"_EnV_ - Heaven.mp3",
-			hostedFile:"https://dl.dropboxusercontent.com/s/9pamibo40ycabe1/_EnV_%20-%20Heaven.mp3"
+			hostedFile:"https://dl.dropboxusercontent.com/s/9pamibo40ycabe1/_env___heaven.mp3"
 		},
 		{
 			localFile:"starcadian_interspace.mp3",
-			hostedFile:"https://dl.dropboxusercontent.com/s/go1iz3g4hap1xuv/Starcadian%20-%20Interspace.mp3"
+			hostedFile:"https://dl.dropboxusercontent.com/s/go1iz3g4hap1xuv/starcadian__interspace.mp3"
 		},
 		{
 			localFile:"Getting Stronger - Michelle Creber Black Gryph0n Baasik.mp3",
-			hostedFile:"https://dl.dropboxusercontent.com/s/mw28fr4lt64mhzt/Getting%20Stronger%20-%20Michelle%20Creber%20Black%20Gryph0n%20Baasik.mp3"
+			hostedFile:"https://dl.dropboxusercontent.com/s/mw28fr4lt64mhzt/getting_stronger__michelle_creber_black_gryph0n_baasik.mp3"
 		},
 		{
 			localFile:"jackle_app__fortune_cookie.mp3",
