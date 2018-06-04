@@ -33,7 +33,8 @@ body {
 	width:$audioPlayerWidth;
 }
 
-#audioVolVisPos {
+#audioVolVisConPos {
+	@include position(relative,0,0);
 	margin:11vh auto;
 	width:fit-content;
 }
@@ -90,7 +91,7 @@ body {
 	// height:520px;
 	// background-color:white;
 	z-index:10;
-	@include position(relative,-230px,141px);
+	@include position(absolute,374px,141px);
 	width:319px;
 	height:181px;
 
@@ -108,12 +109,16 @@ body {
 	// 	@include position(absolute,275px,345px);
 	// 	font-size:1.5em;
 	// 	z-index:1;
+	@include position(absolute,150px,220px);
+	font-size:2em;
+	z-index:30;
 
 	div {
-		// 	display:inline-block;
+		display:inline-block;
 		// 	padding:5px;
 			cursor:pointer;
 		// 	position:absolute;
+		color:white;
 	}
 }
 
@@ -123,7 +128,7 @@ body {
 	img {
 	// 	position:relative;
 	// 	/* top:7px; */
-	// 	width:30px;
+		width:30px;
 	// 	/* height:24px; */
 	}
 }

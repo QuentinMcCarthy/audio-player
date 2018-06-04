@@ -10,12 +10,20 @@
 	<body>
 		<div id="audioPlayer">
 			<div id="audioKnobs">
-				<div id="audioVolVisPos">
+				<div id="audioVolVisConPos">
 					<div id="audioVolDiv">
 						<input id="audioVol" type="text" name="audioVol" value="1">
 					</div>
 
 					<div id="audioVisualizer"></div>
+
+					<div id="controls">
+						<div id="repeatButton" data-repeat="none" data-color="white"><img src="img/repeatIco/white/repeat-none.svg"></div>
+						<div id="backButton" class="disabled"><i class="fas fa-step-backward"></i></div>
+						<div id="playButton"><i class="fas fa-play"></i></div>
+						<div id="pauseButton"><i class="fas fa-pause"></i></div>
+						<div id="skipButton"><i class="fas fa-step-forward"></i></div>
+					</div>
 				</div>
 
 				<div id="audioProgDiv">
@@ -28,14 +36,6 @@
 
 				<div id="loadingDiv">
 					<img id="loadingAnim" src="https://dl.dropboxusercontent.com/s/n3lbd07r1spar8u/loading.gif" alt="Loading">
-				</div>
-
-				<div id="controls">
-					<div id="repeatButton" data-repeat="none"><img src="img/repeat/repeat-none.svg"></div>
-					<div id="backButton" class="disabled"><i class="fas fa-step-backward"></i></div>
-					<div id="playButton"><i class="fas fa-play"></i></div>
-					<div id="pauseButton"><i class="fas fa-pause"></i></div>
-					<div id="skipButton"><i class="fas fa-step-forward"></i></div>
 				</div>
 			</div>
 

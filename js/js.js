@@ -73,11 +73,6 @@ var audioPlayer = {
 		}
 	],
 	repeat:"none",
-	repeatIco:{
-		none:"img/repeat/repeat-none.svg",
-		one:"img/repeat/repeat-1.svg",
-		all:"img/repeat/repeat-all.svg"
-	},
 	tickTen:null,
 	volume:1,
 	visualizer:{
@@ -333,20 +328,22 @@ var audioPlayer = {
 		}
 	},
 	repeatToggle:function(){
+		var icoCol = $("#repeatButton").attr("data-color");
+
 		switch($("#repeatButton").attr("data-repeat")){
 			case "none":
 				$("#repeatButton").attr("data-repeat","single");
-				$("#repeatButton img").attr("src",audioPlayer.repeatIco.one);
+				$("#repeatButton img").attr("src","img/repeatIco/"+icoCol+"/repeat-1.svg");
 				audioPlayer.repeat = "single";
 				break;
 			case "single":
 				$("#repeatButton").attr("data-repeat","all");
-				$("#repeatButton img").attr("src",audioPlayer.repeatIco.all);
+				$("#repeatButton img").attr("src","img/repeatIco/"+icoCol+"/repeat-all.svg");
 				audioPlayer.repeat = "all";
 				break;
 			default:
 				$("#repeatButton").attr("data-repeat","none");
-				$("#repeatButton img").attr("src",audioPlayer.repeatIco.none);
+				$("#repeatButton img").attr("src","img/repeatIco/"+icoCol+"/repeat-none.svg");
 				audioPlayer.repeat = "none";
 		}
 	},
