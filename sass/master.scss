@@ -84,12 +84,15 @@ body {
 	// 	width:480px;
 	// 	height:325px;
 	// 	background-color:black;
-	@include position(relative,-560px,40px);
+	// @include position(relative,-560px,40px);
 	display:block;
-	width:520px;
-	height:520px;
+	// width:520px;
+	// height:520px;
 	// background-color:white;
 	z-index:10;
+	@include position(relative,-230px,141px);
+	width:319px;
+	height:181px;
 
 	div {
 		// width:10px;
@@ -98,7 +101,6 @@ body {
 		position:absolute;
 		bottom:0;
 		transition:0.1s all linear;
-		opacity:0.5;
 	}
 }
 

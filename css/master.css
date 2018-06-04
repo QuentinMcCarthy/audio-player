@@ -27,19 +27,18 @@ body {
   display: none; }
 
 #audioVisualizer {
-  position: relative;
-  top: -560px;
-  left: 40px;
   display: block;
-  width: 520px;
-  height: 520px;
-  z-index: 10; }
+  z-index: 10;
+  position: relative;
+  top: -230px;
+  left: 141px;
+  width: 319px;
+  height: 181px; }
   #audioVisualizer div {
     background-color: red;
     position: absolute;
     bottom: 0;
-    transition: 0.1s all linear;
-    opacity: 0.5; }
+    transition: 0.1s all linear; }
 
 #controls div {
   cursor: pointer; }

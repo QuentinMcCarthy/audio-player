@@ -85,8 +85,8 @@ var audioPlayer = {
 		audio:null,
 		audioReady:false,
 		audioSrc:null,
-		barWidth:5,		// Cap at 5 width and 96 count
-		barCount:96,	// Higher values cause performance issues
+		barWidth:4,		// Cap at 5 width and 96 count
+		barCount:80,	// Higher values cause performance issues
 		barRotation:1.88,
 		bars:[],
 		barColor:1,
@@ -137,7 +137,7 @@ var audioPlayer = {
 
 			for(i = 0; i < audioPlayer.visualizer.bars.length; i++) {
 				var bar = audioPlayer.visualizer.bars[i];
-				var heightCap = (parseInt($("#audioVisualizer").css("height")) - 25);
+				var heightCap = (parseInt($("#audioVisualizer").css("height")));// - 25);
 
 				$(bar).css("height",(heightCap * (audioPlayer.visualizer.frequencyData[i] / 255)) + 'px');
 
