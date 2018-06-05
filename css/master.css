@@ -8,7 +8,7 @@ body {
   margin: 0 auto;
   width: 100vw; }
 
-#audioVolVisConPos {
+#audioPos {
   position: relative;
   top: 0;
   left: 0;
@@ -96,6 +96,62 @@ body {
 
 #repeatButton img {
   width: 30px; }
+
+#playlistControl {
+  padding: 12px 10px 10px 10px;
+  position: relative;
+  bottom: 155px;
+  margin: 0 auto;
+  width: 750px;
+  height: 310px;
+  background-color: grey;
+  border-radius: 10px;
+  z-index: 40; }
+
+#playlistGradientT {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to bottom, black 0%, grey 100%);
+  z-index: 41; }
+
+#playlistGradientR {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to left, black 0%, grey 100%);
+  z-index: 41; }
+
+#playlistGradientL {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to right, black 0%, grey 100%);
+  z-index: 41; }
+
+#playlistGradientTL {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, black 50%, grey 100%);
+  z-index: 42; }
+
+#playlistGradientTR {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(225deg, black 50%, grey 100%);
+  z-index: 42; }
 
 /* Javascript classes */
 
