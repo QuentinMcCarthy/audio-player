@@ -4,7 +4,13 @@
 		<meta charset="utf-8">
 		<title>Audio Player</title>
 
+		<!-- FontAwesome -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
+		<!-- jQuery UI, required for draggable -->
+		<link rel="stylesheet" href="resources/jquery-ui/jquery-ui.min.css">
+		<link rel="resources/jquery-ui/jquery-ui.structure.min.css">
+
 		<link rel="stylesheet" href="css/master.css">
 	</head>
 	<body>
@@ -13,6 +19,10 @@
 				<div id="audioVolVisConPos">
 					<div id="audioVolDiv">
 						<input id="audioVol" type="text" name="audioVol" value="1">
+					</div>
+
+					<div id="loadingDiv">
+						<img id="loadingAnim" src="https://dl.dropboxusercontent.com/s/n3lbd07r1spar8u/loading.gif" alt="Loading">
 					</div>
 
 					<div id="audioVisualizer"></div>
@@ -24,6 +34,13 @@
 						<div id="pauseButton"><i class="fas fa-pause"></i></div>
 						<div id="skipButton"><i class="fas fa-step-forward"></i></div>
 					</div>
+
+					<div id="audioProgLinePos">
+						<div id="audioProgLineDiv">
+							<div id="audioProgLine"></div>
+						</div>
+						<div id="audioProgDot"></div>
+					</div>
 				</div>
 
 				<div id="audioProgDiv">
@@ -33,10 +50,6 @@
 				<div id="audioProgStyleDiv">
 					<input id="audioProgStyle" type="text" name="audioProg-style">
 				</div>
-
-				<!-- <div id="loadingDiv">
-					<img id="loadingAnim" src="https://dl.dropboxusercontent.com/s/n3lbd07r1spar8u/loading.gif" alt="Loading">
-				</div> -->
 			</div>
 
 
@@ -57,6 +70,9 @@
 		<!-- jQuery knob -->
 		<!-- <script src="../../git-basic/jquery_plugins/jquery-knob/dist/jquery.knob.min.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+
+		<!-- jQuery UI, required for draggable -->
+		<script src="resources/jquery-ui/jquery-ui.min.js"></script>
 
 		<script src="js/js.js"></script>
 	</body>

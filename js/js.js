@@ -169,7 +169,7 @@ var audioPlayer = {
 		audioPlayer.canPlay = false;
 
 		// Show loading gif
-		// $("#loadingDiv").css("display","block");
+		$("#loadingDiv").css("display","block");
 
 		// Audio function for if the file is not returned
 		audioPlayer.audio.onerror = function(){
@@ -453,6 +453,11 @@ var audioPlayer = {
 
 		// Set the label element to show the audio's currentTime
 		// $("#audioProgLabel").text(Math.round(audio.currentTime).toString());
+
+		var audioPercent = (audioPlayer.audio.currentTime / audioPlayer.audio.duration);
+
+		$("#audioProgLine").css("width",(audioPercent * 185)+"px");
+		$("#audioProgDot").css("left",(audioPercent * 185)+"px");
 
 		// If the audio is finished
 		if(audioPlayer.audio.ended){
@@ -811,6 +816,22 @@ $(document).ready(function(){
 	$("#repeatButton").click(function(){
 		if(audioPlayer.canPlay){
 			audioPlayer.repeatToggle();
+		}
+	});
+
+	// Min left 0px
+	// Max left 185px
+	$("#audioProgDot").draggable({
+		axis:"x",
+		containment:"parent",
+		cursor:"ew-resize",
+		scroll:false,
+		drag:function(event,ui){
+			$("#audioProgLine").css("width",ui.position.left);
+		},
+		stop:function(event,ui){
+			audioPlayer.audio.currentTime = (ui.position.left / 185) * audioPlayer.audio.duration;
+			audioPlayer.visualizer.audio.currentTime = (ui.position.left / 185) * audioPlayer.visualizer.audio.duration;
 		}
 	});
 

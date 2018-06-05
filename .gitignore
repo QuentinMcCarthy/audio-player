@@ -3,3 +3,4 @@ audio/
 img/*
 !img/repeatIco
 prepros*.config
+resources/

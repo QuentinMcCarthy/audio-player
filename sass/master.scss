@@ -1,6 +1,8 @@
 // Variables
 
 $audioPlayerWidth:100vw;
+$audioProgLineHeight:5px;
+$audioProgLineWidth:200px;
 
 
 // Mixins
@@ -69,10 +71,40 @@ body {
 	// 	font-size:2em !important;
 }
 
+#audioProgLinePos {
+	@include position(absolute,200px,200px);
+	height:$audioProgLineHeight * 3;
+}
+#audioProgLineDiv {
+	@include position(relative,4.4px,0);
+	height:$audioProgLineHeight;
+	width:$audioProgLineWidth;
+	background-color:grey;
+	border-radius:5px;
+	z-index:30;
+}
+#audioProgLine {
+	@include position(relative,0,0);
+	background-color:blue;
+	width:0px;
+	max-width:$audioProgLineWidth;
+	height:$audioProgLineHeight;
+	z-index:31;
+}
+#audioProgDot {
+	@include position(absolute,0,0);
+	width:15px;
+	height:15px;
+	background-color:white;
+	border-radius:100px;
+	z-index:32;
+}
+
 #loadingDiv {
 	// @include position(absolute,50%,385px);
 	display:none;
 	// 	z-index:1;
+	@include position(absolute,200px,200px);
 }
 #loadingAnim {
 	// 	height:130px;
@@ -109,21 +141,21 @@ body {
 	// 	@include position(absolute,275px,345px);
 	// 	font-size:1.5em;
 	// 	z-index:1;
-	@include position(absolute,150px,220px);
+	@include position(absolute,150px,190px);
 	font-size:2em;
 	z-index:30;
 
 	div {
 		display:inline-block;
-		// 	padding:5px;
-			cursor:pointer;
+		padding:5px;
+		cursor:pointer;
 		// 	position:absolute;
 		color:white;
 	}
 }
 
 #repeatButton {
-	// 	/* top:-8px; */
+	// /* top:-8px; */
 
 	img {
 	// 	position:relative;

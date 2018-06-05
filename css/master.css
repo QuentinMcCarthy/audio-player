@@ -26,8 +26,47 @@ body {
 #audioProgDiv, #audioProgStyleDiv {
   display: none; }
 
+#audioProgLinePos {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  height: 15px; }
+
+#audioProgLineDiv {
+  position: relative;
+  top: 4.4px;
+  left: 0;
+  height: 5px;
+  width: 200px;
+  background-color: grey;
+  border-radius: 5px;
+  z-index: 30; }
+
+#audioProgLine {
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: blue;
+  width: 0px;
+  max-width: 200px;
+  height: 5px;
+  z-index: 31; }
+
+#audioProgDot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 100px;
+  z-index: 32; }
+
 #loadingDiv {
-  display: none; }
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 200px; }
 
 #audioVisualizer {
   display: block;
@@ -46,11 +85,12 @@ body {
 #controls {
   position: absolute;
   top: 150px;
-  left: 220px;
+  left: 190px;
   font-size: 2em;
   z-index: 30; }
   #controls div {
     display: inline-block;
+    padding: 5px;
     cursor: pointer;
     color: white; }
 
