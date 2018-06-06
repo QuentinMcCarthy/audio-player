@@ -146,6 +146,13 @@ var audioPlayer = {
 					$(bar).css("background-color","rgb(0,0,"+Math.round(audioPlayer.visualizer.frequencyData[i])+")");
 				}
 			}
+
+			// if(audioPlayer.visualizer.barColor === 1){
+			// 	$("#audioVol").trigger("configure",{"bgColor":"rgb("+audioPlayer.visualizer.frequencyData[audioPlayer.visualizer.barCount / 2]+",0,0)"});
+			// }
+			// else if(audioPlayer.visualizer.barColor === 2){
+			// 	$("#audioVol").trigger("configure",{"bgColor":"rgb(0,"+audioPlayer.visualizer.frequencyData[audioPlayer.visualizer.barCount / 2]+",0)"})
+			// }
 		},
 	},
 	createAudio:function(hosted,id){
@@ -661,8 +668,8 @@ var audioPlayer = {
 			"width":"600",
 			"height":"600",
 			"thickness":.15,
-			"fgColor":"blue",
-			"bgColor":"lightblue",
+			"fgColor":"rgb(0,0,175)",
+			"bgColor":"black",
 			"min":0,
 			"max":1,
 			"step":0.01,

@@ -92,7 +92,7 @@ body {
     display: inline-block;
     padding: 5px;
     cursor: pointer;
-    color: white; }
+    color: #646464; }
 
 #repeatButton img {
   width: 30px; }
@@ -178,5 +178,7 @@ body {
     left: 3px; }
 
 /* Javascript classes */
+.activeControl {
+  color: #c8c8c8 !important; }
 
 /*# sourceMappingURL=master.css.map */
