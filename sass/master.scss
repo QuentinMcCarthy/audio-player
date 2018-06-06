@@ -235,25 +235,28 @@ body {
 	z-index:42;
 }
 #audioInputDiv {
-	// 	width:fit-content;
-	// 	margin:0 auto;
+	width:fit-content;
+	margin:0 auto;
 }
 #audioInput {
-	// 	display:inline-block;
-	// 	height:20px;
-	// 	width:770px;
-	// 	font-size:0.75em;
+	display:inline-block;
+	height:20px;
+	width:700px;
+	font-size:0.75em;
+}
+#audioInputIcoPos {
+	@include position(relative,5px,"");
+	display:inline-block;
 }
 #audioInputBtn {
-	// 	display:inline-block;
-	// 	width:20px;
-	// 	height:20px;
-	// 	cursor:pointer;
+	width:20px;
+	height:20px;
+	cursor:pointer;
 
 	i {
-		// 	position:relative;
-		// 	top:2px;
-		// 	left:3px;
+		position:relative;
+		top:2px;
+		left:3px;
 	}
 }
 
