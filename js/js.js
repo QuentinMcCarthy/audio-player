@@ -91,17 +91,15 @@ var audioPlayer = {
 		updateTick:null,
 		createVisualizer:function(){
 			for(var i = 0; i < audioPlayer.visualizer.barCount; i++){
-				var newBar = document.createElement("div");
+				var newBar = $("<div>", {
+					"width":audioPlayer.visualizer.barWidth + "px"
+				}).appendTo("#audioVisualizer").css("left",(audioPlayer.visualizer.barWidth * i)+ "px");
 
-				var centerX = parseInt($("#audioVisualizer").css("width")) / 2;
-				var centerY = parseInt($("#audioVisualizer").css("height")) / 2;
-
-				$("#audioVisualizer").append(newBar);
-
-				$(newBar).css("width",audioPlayer.visualizer.barWidth + "px");
-				$(newBar).css("left",(audioPlayer.visualizer.barWidth * i)+ "px");
 
 				// Future code relating to circular positioning
+				// var centerX = parseInt($("#audioVisualizer").css("width")) / 2;
+				// var centerY = parseInt($("#audioVisualizer").css("height")) / 2;
+
 				// $(newBar).css("transform","rotate("+(90 + audioPlayer.visualizer.barRotation * i)+"deg)");
 				// $(newBar).css("left",(centerX + Math.round((150 * Math.cos(i * (2 * Math.PI / audioPlayer.visualizer.barCount))))) + "px");
 				// $(newBar).css("top",(centerY + Math.round((150 * Math.sin(i * (2 * Math.PI / audioPlayer.visualizer.barCount))))) + "px");
