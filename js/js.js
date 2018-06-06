@@ -85,6 +85,25 @@ var audioPlayer = {
 		barRotation:1.88,
 		bars:[],
 		barColor:1,
+		config:{
+			volumeKnob:{
+				angleArc:360,
+				displayInput:true,
+				displayPrevious:true,
+				width:"600",
+				height:"600",
+				thickness:.15,
+				fgColor:"rgb(0,0,175)",
+				bgColor:"black",
+			},
+			progKnob:{
+				thickness:.2,
+				width:"150",
+				readOnly:true,
+				cursor:"2.5",
+				fgColor:"black",
+			}
+		},
 		ctx:null,
 		frequencyData:null,
 		maxHeight:255,
@@ -659,15 +678,14 @@ var audioPlayer = {
 		// Audio volume knob
 		$("#audioVol").knob({
 			"angleOffset":-90,
-			// "angleArc":180,
-			// "displayInput":false,
-			// "displayPrevious":true,
-			// "width":"250",
-			"width":"600",
-			"height":"600",
-			"thickness":.15,
-			"fgColor":"rgb(0,0,175)",
-			"bgColor":"black",
+			"angleArc":audioPlayer.config.volumeKnob.angleArc,
+			"displayInput":audioPlayer.config.volumeKnob.angleArc,
+			"displayPrevious":audioPlayer.config.volumeKnob.displayPrevious,
+			"width":audioPlayer.config.volumeKnob.width,
+			"height":audioPlayer.config.volumeKnob.height,
+			"thickness":audioPlayer.config.volumeKnob.thickness,
+			"fgColor":audioPlayer.config.volumeKnob.fgColor,
+			"bgColor":audioPlayer.config.volumeKnob.bgColor,
 			"min":0,
 			"max":1,
 			"step":0.01,
@@ -676,11 +694,11 @@ var audioPlayer = {
 
 		// Audio progress knob
 		$("#audioProg").knob({
-			"thickness":.2,
-			"width":"150",
-			"readOnly":true,
-			"cursor":"2.5",
-			// "fgColor":"black",
+			"thickness":audioPlayer.config.progKnob.thickness,
+			"width":audioPlayer.config.progKnob.width,
+			"readOnly":audioPlayer.config.progKnob.readOnly,
+			"cursor":audioPlayer.config.progKnob.cursor,
+			// "fgColor":audioPlayer.config.progKnob.fgColor,
 			"draw":function(){
 				$(this.i).css("font-size","1.5em")
 			}
@@ -688,12 +706,12 @@ var audioPlayer = {
 
 		// Audio progress secondary knob
 		$("#audioProgStyle").knob({
-			"thickness":.2,
-			"width":"150",
+			"thickness":audioPlayer.config.progKnob.thickness,
+			"width":audioPlayer.config.progKnob.width,
 			"readOnly":true,
 			"displayInput":false,
 			"angleArc":0,
-			"fgColor":"black",
+			"fgColor":audioPlayer.config.progKnob.fgColor,
 		});
 
 		audioPlayer.updatePlaylist();
