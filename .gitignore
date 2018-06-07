@@ -1,6 +1,9 @@
-.DS_Store
+#Blacklist
 audio/
 img/*
-!img/repeatIco
-prepros*.config
 resources/
+.DS_Store
+prepros*.config
+
+#Whitelist
+!img/repeatIco
