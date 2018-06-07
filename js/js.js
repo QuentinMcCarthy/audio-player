@@ -4,6 +4,25 @@ var audioPlayer = {
 	audioReady:false,
 	canPlay:false,
 	checkLoaded:null,
+	config:{
+		volumeKnob:{
+			angleArc:360,
+			displayInput:true,
+			displayPrevious:true,
+			width:"600",
+			height:"600",
+			thickness:.15,
+			fgColor:"rgb(0,0,175)",
+			bgColor:"black",
+		},
+		progKnob:{
+			thickness:.2,
+			width:"150",
+			readOnly:true,
+			cursor:"2.5",
+			fgColor:"black",
+		}
+	},
 	currentTrack:-1,
 	isBlink:undefined,
 	isChrome:undefined,
@@ -85,25 +104,6 @@ var audioPlayer = {
 		barRotation:1.88,
 		bars:[],
 		barColor:1,
-		config:{
-			volumeKnob:{
-				angleArc:360,
-				displayInput:true,
-				displayPrevious:true,
-				width:"600",
-				height:"600",
-				thickness:.15,
-				fgColor:"rgb(0,0,175)",
-				bgColor:"black",
-			},
-			progKnob:{
-				thickness:.2,
-				width:"150",
-				readOnly:true,
-				cursor:"2.5",
-				fgColor:"black",
-			}
-		},
 		ctx:null,
 		frequencyData:null,
 		maxHeight:255,
