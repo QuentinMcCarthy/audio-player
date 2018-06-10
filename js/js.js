@@ -8,7 +8,7 @@ var audioPlayer = {
 		volumeKnob:{
 			angleArc:360,
 			displayInput:true,
-			displayPrevious:true,
+			displayPrevious:false,
 			width:"600",
 			height:"600",
 			thickness:.15,
@@ -21,6 +21,7 @@ var audioPlayer = {
 			readOnly:true,
 			cursor:"2.5",
 			fgColor:"black",
+			fontSize:"1.5em"
 		}
 	},
 	currentTrack:-1,
@@ -700,7 +701,7 @@ var audioPlayer = {
 			"cursor":audioPlayer.config.progKnob.cursor,
 			// "fgColor":audioPlayer.config.progKnob.fgColor,
 			"draw":function(){
-				$(this.i).css("font-size","1.5em")
+				$(this.i).css("font-size",audioPlayer.config.progKnob.fontSize);
 			}
 		});
 
@@ -724,7 +725,7 @@ var audioPlayer = {
 		// This allows the knobs to initialise beforehand
 		setTimeout(function(){
 			// New track
-			audioPlayer.currentTrack++
+			audioPlayer.currentTrack++;
 
 			// Locally hosted
 			// audioPlayer.createAudio(false,"jackle_app__fortune_cookie")
