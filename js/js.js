@@ -320,17 +320,23 @@ var audioPlayer = {
 		$("#pauseButton").addClass("activeControl");
 	},
 	setVol:function(vol){
-		// If the audio exists
-		if(typeof audioPlayer.audio != "undefined"){
-			// If the given volume is a number
-			if(typeof vol == "number"){
-				if(audioPlayer.audio != null){
-					// If the volume is within the valid range
-					if(vol <= 1 && vol >= 0){
+		// If the given volume is a number
+		if(typeof vol == "number"){
+			// If the volume is within the valid range
+			if(vol <= 1 && vol >= 0){
+				// If the audio exists
+				if(typeof audioPlayer.audio != "undefined"){
+					if(audioPlayer.audio != null){
 						audioPlayer.audio.volume = vol;
-						audioPlayer.volume = vol;
 					}
 				}
+				if(typeof audioPlayer.visualizer.audio != "undefined"){
+					if(audioPlayer.visualizer.audio != null){
+						audioPlayer.visualizer.audio.volume = vol;
+					}
+				}
+
+				audioPlayer.volume = vol;
 			}
 		}
 	},
