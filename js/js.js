@@ -330,9 +330,11 @@ var audioPlayer = {
 						audioPlayer.audio.volume = vol;
 					}
 				}
-				if(typeof audioPlayer.visualizer.audio != "undefined"){
-					if(audioPlayer.visualizer.audio != null){
-						audioPlayer.visualizer.audio.volume = vol;
+				if(audioPlayer.isChrome){
+					if(typeof audioPlayer.visualizer.audio != "undefined"){
+						if(audioPlayer.visualizer.audio != null){
+							audioPlayer.visualizer.audio.volume = vol;
+						}
 					}
 				}
 
