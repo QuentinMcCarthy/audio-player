@@ -1,0 +1,20 @@
+{
+	"volumeKnob":{
+		"angleArc":360,
+		"displayInput":true,
+		"displayPrevious":false,
+		"width":"600",
+		"height":"600",
+		"thickness":0.15,
+		"fgColor":"rgb(0,0,175)",
+		"bgColor":"black"
+	},
+	"progKnob":{
+		"thickness":0.2,
+		"width":"150",
+		"readOnly":true,
+		"cursor":"2.5",
+		"fgColor":"black",
+		"fontSize":"1.5em"
+	}
+}
