@@ -1,2 +1,2 @@
 # Audio Player
-GitHub Pages: https://quentinmccarthy.github.io/yoobee-audio/
+GitHub Pages: https://quentinmccarthy.github.io/audio-player/
