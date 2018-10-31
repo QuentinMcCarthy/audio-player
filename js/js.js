@@ -36,6 +36,22 @@ var audioPlayer = {
 	maxTracks:undefined,
 	playlist:[
 		{
+			localFile:"",
+			hostedFile:"https://dl.dropboxusercontent.com/s/bt7voo8e8so2fyj/RISE_%28ft._The_Glitch_Mob_Mako_and_The_Word_Alive%29_Worlds_2018___League_of_Legends.mp3"
+		},
+		{
+			localFile:"",
+			hostedFile:"https://dl.dropboxusercontent.com/s/v13cyysbews3n4r/TheFatRat___No_No_No.mp3"
+		},
+		{
+			localFile:"",
+			hostedFile:"https://dl.dropboxusercontent.com/s/q2f6dmeypxcxejq/Aviators___Impossible_%28Zootopia_Song_Pop_Rock%29.mp3"
+		},
+		{
+			localFile:"",
+			hostedFile:"https://dl.dropboxusercontent.com/s/mzhq0mye2ldkwb2/FADED___Alan_Walker.mp3"
+		},
+		{
 			localFile:"wake_me_up_choir.mp3",
 			hostedFile:"https://dl.dropboxusercontent.com/s/7qse22qrjqhcbyj/wake_me_up_choir.mp3"
 		},
