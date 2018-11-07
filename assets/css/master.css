@@ -244,6 +244,12 @@ body {
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
+	/* Unset Button styles */
+	border: none;
+	padding: 0;
+	text-align: initial;
+	background-color: initial;
+	font: initial;
 }
 #audioInputBtn i {
 	position: relative;

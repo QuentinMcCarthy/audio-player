@@ -42,12 +42,13 @@
 				<div id="playlistGradientTL"></div>
 				<div id="playlistGradientTR"></div>
 
-				<div id="audioInputDiv">
+				<form id="audioInputDiv" action="index.php" method="POST">
 					<input id="audioInput" type="text" name="audioInput" placeholder="Direct Audio Stream URL (Direct URL to file download, should end in the file extension i.e. .mp3).">
+					<!-- <input type="file" name="fileUpload" value=""> -->
 					<div id="audioInputIcoPos">
-						<div id="audioInputBtn"><i class="fas fa-plus"></i></div>
+						<button id="audioInputBtn" type="submit"><i class="fas fa-plus"></i></button>
 					</div>
-				</div>
+				</form>
 
 				<div id="playlistView"></div>
 			</div>

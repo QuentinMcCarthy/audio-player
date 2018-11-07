@@ -799,7 +799,9 @@ $(document).ready(function(){
 	});
 
 	// Click event for the add to playlist button
-	$("#audioInputBtn").click(function(){
+	$("#audioInputBtn").click(function(e){
+		e.preventDefault();
+
 		if(audioPlayer.canPlay){
 			audioPlayer.addToPlaylist($("#audioInput").val());
 		}
