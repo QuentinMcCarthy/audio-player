@@ -828,6 +828,20 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#playlistDrawer").click(function(){
+		if($("#playlistPosition").attr("data-open") == "true"){
+			$("#playlistPosition").css("height", "");
+			$("#playlistPosition").attr("data-open", "false");
+			$("#playlistDrawer h3").text("Open Playlist");
+			$("#playlistDrawer i").removeClass("fa-angle-up").addClass("fa-angle-up");
+		} else {
+			$("#playlistPosition").css("height", "280px");
+			$("#playlistPosition").attr("data-open", "true");
+			$("#playlistDrawer h3").text("Close Playlist");
+			$("#playlistDrawer i").removeClass("fa-angle-up").addClass("fa-angle-down");
+		}
+	});
+
 	// Call functions
 	audioPlayer.createKnobs();
 });

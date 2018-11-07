@@ -137,9 +137,16 @@ body {
 	width: 30px;
 }
 
+#playlistPosition {
+	position: fixed;
+	bottom: 0;
+	height: 50px;
+	width: 100vw;
+}
+
 #playlistControl {
 	position: relative;
-	bottom: 110px;
+	bottom: 0;
 	padding: 12px 10px 10px 10px;
 	margin: 0 auto;
 	width: 750px;
@@ -147,6 +154,22 @@ body {
 	background-color: grey;
 	border-radius: 10px;
 	z-index: 40;
+}
+
+#playlistDrawer {
+	padding: 5px 0;
+	margin: 0 auto;
+	height: 25px;
+	z-index: 41;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 3px solid black;
+	cursor: pointer;
+}
+
+#playlistDrawer h3 {
+	margin: 0 10px 0 0;
 }
 
 #playlistGradientL {

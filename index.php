@@ -29,21 +29,28 @@
 			</div>
 		</div>
 
-		<div id="playlistControl">
-			<div id="playlistGradientT"></div>
-			<div id="playlistGradientR"></div>
-			<div id="playlistGradientL"></div>
-			<div id="playlistGradientTL"></div>
-			<div id="playlistGradientTR"></div>
-
-			<div id="audioInputDiv">
-				<input id="audioInput" type="text" name="audioInput" placeholder="Direct Audio Stream URL (Direct URL to file download, should end in the file extension i.e. .mp3).">
-				<div id="audioInputIcoPos">
-					<div id="audioInputBtn"><i class="fas fa-plus"></i></div>
+		<div id="playlistPosition" data-open="false">
+			<div id="playlistControl">
+				<div id="playlistDrawer">
+					<h3>Open Playlist</h3>
+					<i class="fas fa-angle-up"></i>
 				</div>
-			</div>
 
-			<div id="playlistView"></div>
+				<div id="playlistGradientT"></div>
+				<div id="playlistGradientR"></div>
+				<div id="playlistGradientL"></div>
+				<div id="playlistGradientTL"></div>
+				<div id="playlistGradientTR"></div>
+
+				<div id="audioInputDiv">
+					<input id="audioInput" type="text" name="audioInput" placeholder="Direct Audio Stream URL (Direct URL to file download, should end in the file extension i.e. .mp3).">
+					<div id="audioInputIcoPos">
+						<div id="audioInputBtn"><i class="fas fa-plus"></i></div>
+					</div>
+				</div>
+
+				<div id="playlistView"></div>
+			</div>
 		</div>
 	</div>
 <?php require 'includes/footer.php' ?>
