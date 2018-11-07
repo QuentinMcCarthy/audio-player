@@ -382,17 +382,17 @@ var audioPlayer = {
 		switch($("#repeatButton").attr("data-repeat")){
 			case "none":
 				$("#repeatButton").attr("data-repeat","single");
-				$("#repeatButton img").attr("src","img/repeatIco/"+icoCol+"/repeat-1.svg");
+				$("#repeatButton img").attr("src","assets/img/repeatIco/"+icoCol+"/repeat-1.svg");
 				audioPlayer.repeat = "single";
 				break;
 			case "single":
 				$("#repeatButton").attr("data-repeat","all");
-				$("#repeatButton img").attr("src","img/repeatIco/"+icoCol+"/repeat-all.svg");
+				$("#repeatButton img").attr("src","assets/img/repeatIco/"+icoCol+"/repeat-all.svg");
 				audioPlayer.repeat = "all";
 				break;
 			default:
 				$("#repeatButton").attr("data-repeat","none");
-				$("#repeatButton img").attr("src","img/repeatIco/"+icoCol+"/repeat-none.svg");
+				$("#repeatButton img").attr("src","assets/img/repeatIco/"+icoCol+"/repeat-none.svg");
 				audioPlayer.repeat = "none";
 		}
 	},

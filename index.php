@@ -13,7 +13,7 @@
 				<div id="audioVisualizer"></div>
 
 				<div id="controls">
-					<div id="repeatButton" data-repeat="none" data-color="white"><img src="img/repeatIco/white/repeat-none.svg"></div>
+					<div id="repeatButton" data-repeat="none" data-color="white"><img src="assets/img/repeatIco/white/repeat-none.svg"></div>
 					<div id="backButton" class="disabled"><i class="fas fa-step-backward"></i></div>
 					<div id="playButton"><i class="fas fa-play"></i></div>
 					<div id="pauseButton"><i class="fas fa-pause"></i></div>
