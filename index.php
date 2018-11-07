@@ -7,7 +7,7 @@
 				</div>
 
 				<div id="loadingDiv">
-					<img id="loadingAnim" src="https://dl.dropboxusercontent.com/s/n3lbd07r1spar8u/loading.gif" alt="Loading">
+					<i class="fas fa-spinner fa-10x"></i>
 				</div>
 
 				<div id="audioVisualizer"></div>
