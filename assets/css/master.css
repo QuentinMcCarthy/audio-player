@@ -1,185 +1,214 @@
 * {
-  overflow: hidden; }
+	overflow: hidden;
+}
 
 body {
-  background-color: black; }
+	background-color: black;
+}
 
 #audioPlayer {
-  margin: 0 auto;
-  width: 100vw; }
+	margin: 0 auto;
+	width: 100vw;
+}
 
 #audioPos {
-  position: relative;
-  top: 0;
-  left: 0;
-  margin: 11vh auto;
-  width: fit-content; }
+	position: relative;
+	top: 0;
+	left: 0;
+	margin: 11vh auto;
+	width: fit-content;
+}
 
 #audioVolDiv {
-  position: relative;
-  z-index: 20; }
+	position: relative;
+	z-index: 20;
+}
 
 #audioVol {
-  /* Values marked as !important to override jQuery knob inline styles */
-  font-size: 3em !important;
-  color: blue !important; }
+	/* Values marked as !important to override jQuery knob inline styles */
+	font-size: 3em !important;
+	color: blue !important;
+}
 
 #audioProgDiv, #audioProgStyleDiv {
-  display: none; }
+	display: none;
+}
 
 #audioProgLinePos {
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  height: 15px; }
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	height: 15px;
+}
 
 #audioProgLineDiv {
-  position: relative;
-  top: 4.4px;
-  left: 0;
-  height: 5px;
-  width: 200px;
-  background-color: grey;
-  border-radius: 5px;
-  z-index: 30; }
+	position: relative;
+	top: 4.4px;
+	left: 0;
+	height: 5px;
+	width: 200px;
+	background-color: grey;
+	border-radius: 5px;
+	z-index: 30;
+}
 
 #audioProgLine {
-  position: relative;
-  top: 0;
-  left: 0;
-  background-color: blue;
-  width: 0px;
-  max-width: 200px;
-  height: 5px;
-  z-index: 31; }
+	position: relative;
+	top: 0;
+	left: 0;
+	background-color: blue;
+	width: 0px;
+	max-width: 200px;
+	height: 5px;
+	z-index: 31;
+}
 
 #audioProgDot {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 15px;
-  height: 15px;
-  background-color: white;
-  border-radius: 100px;
-  z-index: 32; }
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 15px;
+	height: 15px;
+	background-color: white;
+	border-radius: 100px;
+	z-index: 32;
+}
 
 #loadingDiv {
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  display: none; }
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	display: none;
+}
 
 #audioVisualizer {
-  position: absolute;
-  top: 374px;
-  left: 141px;
-  display: block;
-  z-index: 10;
-  width: 319px;
-  height: 181px; }
-  #audioVisualizer div {
-    position: absolute;
-    bottom: 0;
-    background-color: red;
-    transition: 0.1s all linear; }
+	position: absolute;
+	top: 374px;
+	left: 141px;
+	display: block;
+	z-index: 10;
+	width: 319px;
+	height: 181px;
+}
+#audioVisualizer div {
+	position: absolute;
+	bottom: 0;
+	background-color: red;
+	transition: 0.1s all linear;
+}
 
 #controls {
-  position: absolute;
-  top: 150px;
-  left: 190px;
-  font-size: 2em;
-  z-index: 30; }
-  #controls div {
-    display: inline-block;
-    padding: 5px;
-    cursor: pointer;
-    color: #646464; }
+	position: absolute;
+	top: 150px;
+	left: 190px;
+	font-size: 2em;
+	z-index: 30;
+}
+#controls div {
+	display: inline-block;
+	padding: 5px;
+	cursor: pointer;
+	color: #646464;
+}
 
 #repeatButton img {
-  width: 30px; }
+	width: 30px;
+}
 
 #playlistControl {
-  position: relative;
-  bottom: 110px;
-  padding: 12px 10px 10px 10px;
-  margin: 0 auto;
-  width: 750px;
-  height: 310px;
-  background-color: grey;
-  border-radius: 10px;
-  z-index: 40; }
+	position: relative;
+	bottom: 110px;
+	padding: 12px 10px 10px 10px;
+	margin: 0 auto;
+	width: 750px;
+	height: 310px;
+	background-color: grey;
+	border-radius: 10px;
+	z-index: 40;
+}
 
 #playlistGradientL {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 100%;
-  background: linear-gradient(to right, black 0%, grey 100%);
-  z-index: 41; }
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 10px;
+	height: 100%;
+	background: linear-gradient(to right, black 0%, grey 100%);
+	z-index: 41;
+}
 
 #playlistGradientTL {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  background: linear-gradient(135deg, black 50%, grey 100%);
-  z-index: 42; }
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 10px;
+	height: 10px;
+	background: linear-gradient(135deg, black 50%, grey 100%);
+	z-index: 42;
+}
 
 #playlistGradientT {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background: linear-gradient(to bottom, black 0%, grey 100%);
-  z-index: 41; }
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 10px;
+	background: linear-gradient(to bottom, black 0%, grey 100%);
+	z-index: 41;
+}
 
 #playlistGradientTR {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  background: linear-gradient(225deg, black 50%, grey 100%);
-  z-index: 42; }
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	background: linear-gradient(225deg, black 50%, grey 100%);
+	z-index: 42;
+}
 
 #playlistGradientR {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 100%;
-  background: linear-gradient(to left, black 0%, grey 100%);
-  z-index: 41; }
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 10px;
+	height: 100%;
+	background: linear-gradient(to left, black 0%, grey 100%);
+	z-index: 41;
+}
 
 #audioInputDiv {
-  width: fit-content;
-  margin: 0 auto; }
+	width: fit-content;
+	margin: 0 auto;
+}
 
 #audioInput {
-  display: inline-block;
-  height: 20px;
-  width: 700px;
-  font-size: 0.75em; }
+	display: inline-block;
+	height: 20px;
+	width: 700px;
+	font-size: 0.75em;
+}
 
 #audioInputIcoPos {
-  position: relative;
-  top: 5px;
-  display: inline-block; }
+	position: relative;
+	top: 5px;
+	display: inline-block;
+}
 
 #audioInputBtn {
-  width: 20px;
-  height: 20px;
-  cursor: pointer; }
-  #audioInputBtn i {
-    position: relative;
-    top: 2px;
-    left: 3px; }
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+#audioInputBtn i {
+	position: relative;
+	top: 2px;
+	left: 3px;
+}
 
 /* Javascript classes */
 .activeControl {
-  color: #c8c8c8 !important; }
+	color: #c8c8c8 !important;
+}
 
 /*# sourceMappingURL=master.css.map */
