@@ -30,10 +30,6 @@ body {
 	color: blue !important;
 }
 
-#audioProgDiv, #audioProgStyleDiv {
-	display: none;
-}
-
 #audioProgLinePos {
 	position: absolute;
 	top: 200px;

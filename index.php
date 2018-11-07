@@ -27,14 +27,6 @@
 					<div id="audioProgDot"></div>
 				</div>
 			</div>
-
-			<div id="audioProgDiv">
-				<input id="audioProg" type="text" name="audioProg">
-			</div>
-
-			<div id="audioProgStyleDiv">
-				<input id="audioProgStyle" type="text" name="audioProg-style">
-			</div>
 		</div>
 
 		<div id="playlistControl">
@@ -43,6 +35,7 @@
 			<div id="playlistGradientL"></div>
 			<div id="playlistGradientTL"></div>
 			<div id="playlistGradientTR"></div>
+
 			<div id="audioInputDiv">
 				<input id="audioInput" type="text" name="audioInput" placeholder="Direct Audio Stream URL (Direct URL to file download, should end in the file extension i.e. .mp3).">
 				<div id="audioInputIcoPos">

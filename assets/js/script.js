@@ -14,14 +14,6 @@ var audioPlayer = {
 			thickness:.15,
 			fgColor:"rgb(0,0,175)",
 			bgColor:"black"
-		},
-		progKnob:{
-			thickness:.2,
-			width:"150",
-			readOnly:true,
-			cursor:"2.5",
-			fgColor:"black",
-			fontSize:"1.5em"
 		}
 	},
 	currentTrack:-1,
@@ -470,13 +462,6 @@ var audioPlayer = {
 			audioDuration = 0;
 		}
 
-		// Set the audioProg knob's max and value to duration
-		// and current time of audio
-		$("#audioProg")
-			.trigger("configure",{"max":audioDuration})
-			.val(audioPlayer.audio.currentTime)
-			.trigger("change");
-
 		// Create a temporary variable
 		// Initialise variable with a 360deg percentage of
 		// the audio's current time verse its duration
@@ -486,19 +471,6 @@ var audioPlayer = {
 		if(currentArc<0){
 			currentArc=0
 		}
-
-		// Set the audioProgStyle knob's arc and max to
-		// the currentTime with a delay
-		$("#audioProgStyle")
-			.trigger(
-				"configure",
-				{
-					"angleArc":currentArc,
-					"max":(audioPlayer.audio.currentTime)
-				}
-			)
-			.val(audioPlayer.audio.currentTime)
-			.trigger("change");
 
 		// Set the label element to show the audio's currentTime
 		// $("#audioProgLabel").text(Math.round(audio.currentTime).toString());
@@ -715,28 +687,6 @@ var audioPlayer = {
 			"max":1,
 			"step":0.01,
 			"draw":function(){ audioPlayer.setVol(this.v)}
-		});
-
-		// Audio progress knob
-		$("#audioProg").knob({
-			"thickness":audioPlayer.config.progKnob.thickness,
-			"width":audioPlayer.config.progKnob.width,
-			"readOnly":audioPlayer.config.progKnob.readOnly,
-			"cursor":audioPlayer.config.progKnob.cursor,
-			// "fgColor":audioPlayer.config.progKnob.fgColor,
-			"draw":function(){
-				$(this.i).css("font-size",audioPlayer.config.progKnob.fontSize);
-			}
-		});
-
-		// Audio progress secondary knob
-		$("#audioProgStyle").knob({
-			"thickness":audioPlayer.config.progKnob.thickness,
-			"width":audioPlayer.config.progKnob.width,
-			"readOnly":true,
-			"displayInput":false,
-			"angleArc":0,
-			"fgColor":audioPlayer.config.progKnob.fgColor,
 		});
 
 		audioPlayer.updatePlaylist();
