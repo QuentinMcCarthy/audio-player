@@ -436,13 +436,7 @@ var audioPlayer = {
 		var borderPx = "3px"
 
 		// Add border-left to current track on playlist
-		$("[data-item="+audioPlayer.currentTrack+"]").css("border-left-color","black");
-
-		// Get the "left" value of the current track's button pos
-		var currentLeft = $("[data-item="+audioPlayer.currentTrack+"] .playlistBtnPos").css("left");
-
-		// New "left" value for current track's button pos is current value - border thickness
-		$("[data-item="+audioPlayer.currentTrack+"] .playlistBtnPos").css("left",(parseInt(currentLeft)-parseInt(borderPx)).toString()+"px");
+		$("[data-item="+audioPlayer.currentTrack+"]").addClass("active");
 
 		// Play the audio based on the current track
 		// Error prevention

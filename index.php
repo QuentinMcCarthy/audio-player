@@ -1,6 +1,6 @@
 <?php require 'includes/header.php'; ?>
 	<div id="audioPlayer">
-		<div id="audioKnobs">
+		<div>
 			<div id="audioPos">
 				<div id="audioVolDiv">
 					<input id="audioVol" type="text" name="audioVol" value="1">

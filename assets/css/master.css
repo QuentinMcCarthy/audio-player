@@ -228,6 +228,11 @@ body {
 	left: 3px;
 }
 
+.active {
+	/* Temporary styles */
+	border: 5px solid black;
+}
+
 /* Javascript classes */
 .activeControl {
 	color: #c8c8c8 !important;
