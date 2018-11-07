@@ -1,10 +1,7 @@
 #Blacklist
-audio/
 img/*
-resources/
 node_modules/
 .DS_Store
-prepros*.config
 
 #Whitelist
 !img/repeatIco
