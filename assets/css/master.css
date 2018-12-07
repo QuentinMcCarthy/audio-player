@@ -17,6 +17,7 @@ body {
 	left: 0;
 	margin: 11vh auto;
 	width: fit-content;
+	width: -moz-fit-content;
 }
 
 #audioVolDiv {
