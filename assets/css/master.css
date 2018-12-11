@@ -235,9 +235,13 @@ body {
 	font-size: 0.75em;
 }
 
+#audioFileInput {
+	width: 700px;
+}
+
 #audioInputIcoPos {
 	position: relative;
-	top: 5px;
+	top: 1.5px;
 	display: inline-block;
 }
 

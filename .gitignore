@@ -1,6 +1,7 @@
 #Blacklist
 img/*
 node_modules/
+audio/
 .DS_Store
 
 #Whitelist
