@@ -837,7 +837,7 @@ $(document).ready(function(){
 			$("#playlistDrawer h3").text("Open Playlist");
 			$("#playlistDrawer i").removeClass("fa-angle-up").addClass("fa-angle-up");
 		} else {
-			$("#playlistPosition").css("height", "280px");
+			$("#playlistPosition").css("height", "25vh");
 			$("#playlistPosition").attr("data-open", "true");
 			$("#playlistDrawer h3").text("Close Playlist");
 			$("#playlistDrawer i").removeClass("fa-angle-up").addClass("fa-angle-down");
