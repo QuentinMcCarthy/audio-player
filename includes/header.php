@@ -1,5 +1,25 @@
 <?php
 	session_start();
+
+	if(isset($_SESSION['playlist'])){
+		$playlist = $_SESSION['playlist'];
+
+		print_r($playlist);
+
+		foreach($playlist as $playlistItem){
+			list($time, $songname) = explode("-", $playlistItem);
+
+			$expiry = strtotime("+30 day", $time);
+
+			if(time()>$expiry){
+				echo "Expired";
+			} else{
+				echo "Good";
+			}
+		}
+
+		die();
+	}
 ?>
 
 <!DOCTYPE html>

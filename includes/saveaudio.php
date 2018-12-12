@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	$path = "../uploads/audio";
 
 	$valid_formats = array("mp3");
@@ -15,7 +17,7 @@
 
 			if(in_array($ext, $valid_formats)){
 				if($size<((1024*1024)*10)){ // 10 MB
-					$new_name = $txt."-".time().".".$ext;
+					$new_name = time()."-".$txt.".".$ext;
 
 					if(!is_dir($path)){
 						mkdir($path."/", 0777, true);
