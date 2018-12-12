@@ -803,7 +803,9 @@ $(document).ready(function(){
 		e.preventDefault();
 
 		if(audioPlayer.canPlay){
-			audioPlayer.addToPlaylist($("#audioInput").val());
+			// audioPlayer.addToPlaylist($("#audioInput").val());
+
+			$("#audioInputDiv").ajaxForm().submit();
 		}
 	});
 

@@ -42,7 +42,7 @@
 				<div id="playlistGradientTL"></div>
 				<div id="playlistGradientTR"></div>
 
-				<form id="audioInputDiv" action="saveimage.php" method="POST" enctype="multipart/form-data">
+				<form id="audioInputDiv" action="includes/saveaudio.php" method="POST" enctype="multipart/form-data">
 					<!-- <input id="audioInput" type="text" name="audioInput" placeholder="Direct Audio Stream URL (Direct URL to file download, should end in the file extension i.e. .mp3)."> -->
 					<input id="audioFileInput" type="file" name="fileUpload">
 					<div id="audioInputIcoPos">

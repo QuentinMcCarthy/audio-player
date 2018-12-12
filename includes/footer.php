@@ -7,6 +7,9 @@
 		<!-- jQuery UI, required for draggable -->
 		<script src="assets/js/jquery-ui.min.js"></script>
 
+		<!-- jQuery Form, required for file upload w/o refresh -->
+		<script src="node_modules/jquery-form/dist/jquery.form.min.js"></script>
+
 		<script src="assets/js/script.js"></script>
 	</body>
 </html>
