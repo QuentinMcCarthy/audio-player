@@ -6,19 +6,21 @@
 
 		print_r($playlist);
 
-		foreach($playlist as $playlistItem){
+		for($i=0; $i < count($playlist) ; $i++){
+			$playlistItem = $playlist[$i];
+
 			list($time, $songname) = explode("-", $playlistItem);
 
 			$expiry = strtotime("+30 day", $time);
 
+			echo "<br /><br />".($expiry - time());
+
 			if(time()>$expiry){
-				echo "Expired";
-			} else{
-				echo "Good";
+				if(unlink("./uploads/audio/".$playlistItem)){
+					array_splice($_SESSION['playlist'], $i, 1);
+				}
 			}
 		}
-
-		die();
 	}
 ?>
 
