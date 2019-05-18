@@ -17,14 +17,8 @@ var audioPlayer = {
 		}
 	},
 	currentTrack:-1,
-	isBlink:undefined,
-	isChrome:undefined,
-	isEdge:undefined,
-	isFirefox:undefined,
-	isIE:undefined,
-	isOpera:undefined,
+	isChrome:false,
 	isPlaying:false,
-	isSafari:undefined,
 	maxTracks:undefined,
 	playlist:[
 		{
@@ -705,57 +699,20 @@ var audioPlayer = {
 		}, 250)
 	},
 	detectBrowser:function(){
-		// Opera 8.0+
-		audioPlayer.isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+		var isChromium = window.chrome;
+		var winNav = window.navigator;
+		var vendorName = winNav.vendor;
+		var isOpera = typeof window.opr !== "undefined";
+		var isIEdge = winNav.userAgent.indexOf("Edge") > -1;
+		var isIOSChrome = winNav.userAgent.match("CriOS");
 
-		// Firefox 1.0+
-		audioPlayer.isFirefox = typeof InstallTrigger !== 'undefined';
-
-		// Safari 3.0+ "[object HTMLElementConstructor]"
-		// DOES NOT WORK SAFARI 10+
-		audioPlayer.isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-
-		// Internet Explorer 6-11
-		audioPlayer.isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-		// Edge 20+
-		audioPlayer.isEdge = !audioPlayer.isIE && !!window.StyleMedia;
-
-		// Chrome 1+
-		audioPlayer.isChrome = !!window.chrome && !!window.chrome.webstore;
-
-		// Blink engine detection
-		audioPlayer.isBlink = (audioPlayer.isChrome || audioPlayer.isOpera) && !!window.CSS;
-
-		if(!audioPlayer.isOpera && !audioPlayer.isFirefox && !audioPlayer.isSafari && !audioPlayer.isIE && !audioPlayer.isEdge && !audioPlayer.isChrome && !audioPlayer.isBlink){
-			console.log("Browser detection failure. Trying second method.");
-
-			audioPlayer.isOpera = false;
-			audioPlayer.isFirefox = false;
-			audioPlayer.isSafari = false;
-			audioPlayer.isIE = false;
-			audioPlayer.isEdge = false;
+		if(isIOSChrome){
+			audioPlayer.isChrome = true;
+		} else if(isChromium !== null && typeof isChromium !== "undefined" && vendorName == "Google Inc." && isOpera == false && isIEdge == false){
+			audioPlayer.isChrome = true;
+		} else{
+			console.log("Browser not detected as chrome, cannot run audio visualizer")
 			audioPlayer.isChrome = false;
-			audioPlayer.isBlink = false;
-
-			if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1){
-				audioPlayer.isOperate = true;
-			}
-			else if(navigator.userAgent.indexOf("Firefox") != -1){
-				audioPlayer.isFirefox = true;
-		    }
-			else if(navigator.userAgent.indexOf("Safari") != -1){
-				audioPlayer.isSafari = true;
-			}
-			else if((navigator.userAgent.indexOf("MSIE")) != -1){
-				audioPlayer.isIE = true;
-			}
-			else if(navigator.userAgent.indexOf("Chrome") != -1){
-				audioPlayer.isChrome = true;
-			}
-			else{
-				console.log("Browser detecion failure. Unknown browser.");
-			}
 		}
 	}
 }
